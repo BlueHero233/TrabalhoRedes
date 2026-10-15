@@ -33,7 +33,7 @@ Os valores são totais para o **conjunto das três LANs**, quando aplicável. Ve
 | Aluno conferiu | Item | Critério de avaliação | Valor máximo | Nota |
 | :---: | :---: | :--- | ---: | :---: |
 | ☐ | 1.1 | Sub-redes IPv4/IPv6 corretas, com prefixos, blocos LAN/WAN e reservas para expansão conforme a Tarefa 1. | 0,50 | |
-| ☐ | 1.2 | Endereçamento completo dos dispositivos, incluindo os futuros APs: IPv4, máscara e gateway; IPv6/prefixo e gateway se o modelo permitir. Forma automática dos clientes indicada. | 0,50 | |
+| ☐ | 1.2 | Endereçamento completo dos dispositivos, incluindo os futuros APs: IPv4, máscara e gateway; IPv6/prefixo e gateway. Forma automática dos clientes indicada. | 0,50 | |
 | | | **Subtotal da entrega 1** | **1,00** | |
 
 **Observações / pendências:**
