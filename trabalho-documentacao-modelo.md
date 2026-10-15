@@ -37,9 +37,7 @@
 
 *Preencha na Entrega 1 o endereçamento estático de todos os dispositivos de infraestrutura, incluindo os futuros APs. Indique DHCPv4 e SLAAC/DHCPv6 stateless para PCs e futuros notebooks.*
 
-**Planejamento dos futuros APs — obrigatório na Entrega 1:** calcule e registre os endereços exatos de gerenciamento: **IPv4, máscara e gateway**, além de **IPv6/prefixo e gateway**, se o modelo permitir. O AP utilizará o **quinto IPv4 válido** da LAN e, quando houver gerenciamento IPv6, o identificador `::5` no /64 do campus, com gateway `FE80::1`. Para recursos de gerenciamento ausentes, indique **“Não disponível no modelo”** e identifique o equipamento previsto. A inclusão física e a configuração dos APs serão realizadas na **Entrega 4**.
-
-Modelo de roteador sem fio previsto para atuar como AP: **(preencher na Entrega 1)**.
+**Planejamento dos futuros APs — obrigatório na Entrega 1:** calcule e registre os endereços exatos de gerenciamento: **IPv4, máscara e gateway**, além de **IPv6/prefixo e gateway**. O planejamento deverá reservar o **quinto IPv4 válido** da LAN e o endereço IPv6 com identificador `::5` no /64 do campus, com gateway `FE80::1`. A inclusão física e a configuração dos APs serão realizadas na **Entrega 4**.
 
 A documentação de SSID, senha e demais parâmetros Wi-Fi será preenchida na **seção da Tarefa 9, na Entrega 4**.
 
@@ -51,9 +49,9 @@ A documentação de SSID, senha e demais parâmetros Wi-Fi será preenchida na *
 | **SRV-FB-WEB** | NIC | 200.136.**N**.(preencher) | 255.255.255.(preencher) | 200.136.**N**.(preencher) | 2001:DB8:CAFE:**NN**(preencher)::(preencher)/64 | EUI-64 | *FE80::1* |
 | **SRV-DV-DNS-DHCP** | NIC | 200.136.**N**.(preencher) | 255.255.255.(preencher) | 200.136.**N**.(preencher) | 2001:DB8:CAFE:**NN**(preencher)::(preencher)/64 | EUI-64 | *FE80::1* |
 | **SRV-DV-WEB** | NIC | 200.136.**N**.(preencher) | 255.255.255.(preencher) | 200.136.**N**.(preencher) | 2001:DB8:CAFE:**NN**(preencher)::(preencher)/64 | EUI-64 | *FE80::1* |
-| **AP-Pato Branco — futuro** | LAN (Gi1) | 200.136.**N**.(preencher) | 255.255.255.(preencher) | 200.136.**N**.(preencher) | (preencher GUA/prefixo, se permitido) | Automático, se permitido | FE80::1, se permitido |
-| **AP-Fco. Beltrão — futuro** | LAN (Gi1) | 200.136.**N**.(preencher) | 255.255.255.(preencher) | 200.136.**N**.(preencher) | (preencher GUA/prefixo, se permitido) | Automático, se permitido | FE80::1, se permitido |
-| **AP-Dois Vizinhos — futuro** | LAN (Gi1) | 200.136.**N**.(preencher) | 255.255.255.(preencher) | 200.136.**N**.(preencher) | (preencher GUA/prefixo, se permitido) | Automático, se permitido | FE80::1, se permitido |
+| **AP-Pato Branco — futuro** | LAN (Gi1) | 200.136.**N**.(preencher) | 255.255.255.(preencher) | 200.136.**N**.(preencher) | (preencher GUA/prefixo) | Automático | FE80::1 |
+| **AP-Fco. Beltrão — futuro** | LAN (Gi1) | 200.136.**N**.(preencher) | 255.255.255.(preencher) | 200.136.**N**.(preencher) | (preencher GUA/prefixo) | Automático | FE80::1 |
+| **AP-Dois Vizinhos — futuro** | LAN (Gi1) | 200.136.**N**.(preencher) | 255.255.255.(preencher) | 200.136.**N**.(preencher) | (preencher GUA/prefixo) | Automático | FE80::1 |
 | **Switch-Pato Branco** | SVI | 200.136.**N**.(preencher) | 255.255.255.(preencher) | 200.136.**N**.(preencher) | 2001:DB8:CAFE:**NN**(preencher)::(preencher)/64 | EUI-64 | *FE80::1* |
 | **Switch-Fco. Beltrão** | SVI | 200.136.**N**.(preencher) | 255.255.255.(preencher) | 200.136.**N**.(preencher) | 2001:DB8:CAFE:**NN**(preencher)::(preencher)/64 | EUI-64 | *FE80::1* |
 | **Switch-Dois Vizinhos** | SVI | 200.136.**N**.(preencher) | 255.255.255.(preencher) | 200.136.**N**.(preencher) | 2001:DB8:CAFE:**NN**(preencher)::(preencher)/64 | EUI-64 | *FE80::1* |
@@ -181,6 +179,10 @@ Outros parâmetros Wi-Fi configurados e observações sobre os modelos utilizado
 
 Confirmação de que os APs utilizam os endereços planejados na Tarefa 2: **(preencher)**.
 
+**Limitações verificadas na implementação — Tarefa 9:** se o modelo de AP não permitir configurar o gerenciamento IPv6 ou outro parâmetro de gerenciamento previsto, registre aqui essa condição. Os endereços IPv4 e IPv6 deverão permanecer definidos na Tarefa 2 como parte do planejamento. A comunicação IPv6 dos notebooks continua sendo requisito da expansão.
+
+Limitações do modelo e parâmetros efetivamente configurados: **(preencher)**.
+
 ### Endereçamento Recebido pelos Notebooks
 
 | Campus | IPv4 / máscara | IPv6 GUA / prefixo | Gateway IPv4 | Gateway IPv6 | DNS IPv4 / IPv6 |
@@ -213,7 +215,7 @@ Confirmação de que os APs utilizam os endereços planejados na Tarefa 2: **(pr
 - [ ] Tarefa 1: sub-redes IPv4/IPv6 e reservas para expansão documentadas.
 - [ ] Tarefa 2: roteadores, switches e servidores com endereçamento completo.
 - [ ] Futuros APs com IPv4, máscara e gateway já calculados e registrados.
-- [ ] IPv6/prefixo e gateway dos APs planejados quando o modelo permitir; limitações de gerenciamento identificadas.
+- [ ] IPv6/prefixo e gateway dos futuros APs já calculados e registrados.
 - [ ] DHCPv4 e SLAAC/DHCPv6 stateless indicados para PCs e futuros notebooks.
 - [ ] Documento salvo como `trabalho-documentacao-v1-NomeAluno.md`.
 
