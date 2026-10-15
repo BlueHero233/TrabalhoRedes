@@ -47,7 +47,7 @@ Cada campus deverá ter sua própria infraestrutura de serviços, conforme o Qua
 
 O projeto prevê a expansão de **cada LAN com 1 AP e 1 notebook Wi-Fi**, apresentada na [Figura 2](#figura2), na [Tarefa 9](#tarefa-9). O AP será implementado por um **roteador sem fio** conectado ao switch da respectiva LAN. Essa expansão será implementada na **Entrega 4**, após a aula sobre Wi-Fi.
 
-> **Planejamento desde a primeira entrega:** os endereços dos futuros APs deverão ser calculados e registrados na **Tarefa 2 / Entrega 1**: IPv4, máscara e gateway, além de IPv6/prefixo e gateway quando o modelo permitir gerenciamento IPv6. O quinto endereço IPv4 válido de cada LAN ficará reservado para o AP. A documentação de SSID, senha e demais parâmetros Wi-Fi será preenchida na **Tarefa 9 / Entrega 4**.
+> **Planejamento desde a primeira entrega:** os endereços dos futuros APs deverão ser calculados e registrados na **Tarefa 2 / Entrega 1**: IPv4, máscara e gateway, além de IPv6/prefixo e gateway. O quinto endereço IPv4 válido de cada LAN ficará reservado para o AP. A documentação de SSID, senha e demais parâmetros Wi-Fi será preenchida na **Tarefa 9 / Entrega 4**.
 
 Ao final, o trabalho deverá conter a documentação do projeto e a topologia completa e funcional no Packet Tracer, com clientes cabeados e sem fio utilizando os serviços dos campi.
 
@@ -87,7 +87,7 @@ Esta tarefa exige a documentação completa do esquema de endereçamento lógico
 
 ### 2.1. Endereçamento Estático (LANs e WANs)
 
-Os endereços IPv4 e os endereços IPv6 GUA devem ser atribuídos **manualmente** aos dispositivos de infraestrutura (roteadores, switches e servidores), seguindo a ordem de host válido da respectiva sub-rede. Para os futuros APs, **defina e documente desde a Entrega 1** o IPv4 de gerenciamento, a máscara e o gateway. Defina também o IPv6/prefixo e o gateway quando o modelo permitir gerenciamento IPv6; utilize o identificador de interface `::5` no /64 do campus e o gateway `FE80::1`. A configuração desses endereços nos APs será realizada na **Entrega 4**.
+Os endereços IPv4 e os endereços IPv6 GUA devem ser atribuídos **manualmente** aos dispositivos de infraestrutura (roteadores, switches e servidores), seguindo a ordem de host válido da respectiva sub-rede. Para os futuros APs, **defina e documente desde a Entrega 1** o IPv4 de gerenciamento, a máscara e o gateway. Defina também o IPv6/prefixo e o gateway; utilize o identificador de interface `::5` no /64 do campus e o gateway `FE80::1`. A configuração desses endereços nos APs será realizada na **Entrega 4**.
 
 #### A. Endereçamento nas LANs (Pato Branco, Francisco Beltrão e Dois Vizinhos)
 
@@ -103,7 +103,7 @@ Em cada LAN, os **cinco primeiros** endereços de host válidos são reservados 
 | **Segundo** | **SVI do Switch** (Gerenciamento) | IPv4 e IPv6 GUA |
 | **Terceiro** | Servidor **DHCP/DNS** | IPv4 e IPv6 GUA |
 | **Quarto** | Servidor **Web** | IPv4 e IPv6 GUA |
-| **Quinto** | **AP** (gerenciamento da LAN do roteador sem fio) | IPv4; IPv6 GUA, se o modelo permitir |
+| **Quinto** | **AP** (gerenciamento da LAN do roteador sem fio) | IPv4 e IPv6 GUA |
 
 
 #### B. Endereçamento nos Enlaces WAN (Seriais e Fa0/1)
@@ -137,7 +137,7 @@ Ao documentar o endereçamento dos PCs, Notebooks, Servidores e Switches, o **De
 -----
 
   * **Documentar** o endereçamento *estático* completo (IPv4/IPv6, máscaras/prefixos e Endereço Link-Local) de **TODOS** os roteadores, switches e servidores conforme o [modelo](trabalho-documentacao-modelo.md).
-  * **Documentar na Entrega 1** os endereços exatos de gerenciamento dos futuros APs: IPv4, máscara e gateway; IPv6/prefixo e gateway, se o modelo permitir. Quando um recurso de gerenciamento não estiver disponível no modelo, identifique essa condição na documentação.
+  * **Documentar na Entrega 1** os endereços exatos de gerenciamento dos futuros APs: IPv4, máscara e gateway; IPv6/prefixo e gateway.
   * **Indicar na Entrega 1** o uso de **DHCPv4 e SLAAC/DHCPv6 stateless** para PCs e futuros notebooks.
   * **Complementar somente na Entrega 4** a documentação com SSID, senha, segurança e demais dados de configuração Wi-Fi solicitados na Tarefa 9.
 
@@ -534,7 +534,7 @@ Entregar **`trabalho-documentacao-v1-NomeAluno.md`**, seguindo o [modelo de docu
 - RA, nome e curso do aluno.
 - **Tarefa 1:** sub-redes IPv4 e IPv6, incluindo as reservas para expansão.
 - **Tarefa 2:** endereçamento completo dos roteadores, switches e servidores.
-- **Endereços dos futuros APs:** IPv4, máscara e gateway; IPv6/prefixo e gateway quando o modelo permitir gerenciamento IPv6. Os endereços deverão estar calculados e registrados nesta entrega, mesmo que os APs sejam acrescentados à topologia somente na Entrega 4.
+- **Endereços dos futuros APs:** IPv4, máscara e gateway; IPv6/prefixo e gateway. Os endereços deverão estar calculados e registrados nesta entrega, mesmo que os APs sejam acrescentados à topologia somente na Entrega 4.
 - Indicação de DHCPv4 e SLAAC/DHCPv6 stateless para os PCs e futuros notebooks.
 
 A seção de parâmetros Wi-Fi da Tarefa 9 no modelo será preenchida na **Entrega 4**.
