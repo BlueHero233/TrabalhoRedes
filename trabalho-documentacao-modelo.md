@@ -2,10 +2,13 @@
 
 ## **Disciplina:** Redes de Computadores
 
-### **Cursos:** Engenharia de Computação / Tecnologia em Análise e Desenvolvimento de Sistemas
+### **Cursos:** Engenharia de Computação / Engenharia Elétrica / Tecnologia em Análise e Desenvolvimento de Sistemas
 
 **Nome:**
+
 **RA:**
+
+**Curso:**
 
 ---
 
@@ -28,15 +31,17 @@
 | **ita-dv** | 200.136.**N**.*(preencher)* | 255.255.255.*(preencher)* | 2001:DB8:CAFE:**NN**FF:: *(preencher)* :0/112 |
 
 
-
-
 ---
 
 ## 🖥️ Tarefa 2: Tabela de Endereçamento Lógico (0,5 Ponto)
 
-*Preencha o endereçamento estático de todos os dispositivos de infraestrutura (Servidores, Switches, Roteadores e APs). PCs e notebooks usarão DHCPv4 e SLAAC/DHCPv6 stateless.*
+*Preencha na Entrega 1 o endereçamento estático de todos os dispositivos de infraestrutura, incluindo os futuros APs. Indique DHCPv4 e SLAAC/DHCPv6 stateless para PCs e futuros notebooks.*
 
-*O AP utilizará o quinto endereço IPv4 válido da LAN para gerenciamento. Complete os campos IPv6 do AP somente se o modelo utilizado disponibilizar gerenciamento IPv6; caso contrário, indique “Não disponível no modelo”.*
+**Planejamento dos futuros APs — obrigatório na Entrega 1:** calcule e registre os endereços exatos de gerenciamento: **IPv4, máscara e gateway**, além de **IPv6/prefixo e gateway**, se o modelo permitir. O AP utilizará o **quinto IPv4 válido** da LAN e, quando houver gerenciamento IPv6, o identificador `::5` no /64 do campus, com gateway `FE80::1`. Para recursos de gerenciamento ausentes, indique **“Não disponível no modelo”** e identifique o equipamento previsto. A inclusão física e a configuração dos APs serão realizadas na **Entrega 4**.
+
+Modelo de roteador sem fio previsto para atuar como AP: **(preencher na Entrega 1)**.
+
+A documentação de SSID, senha e demais parâmetros Wi-Fi será preenchida na **seção da Tarefa 9, na Entrega 4**.
 
 | Dispositivo | Interface | IPv4 | IPv4 - Máscara | IPv4 - Gateway | IPv6/Prefixo (GUA) | IPv6 (LLA) | IPv6-Gateway |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
@@ -46,9 +51,9 @@
 | **SRV-FB-WEB** | NIC | 200.136.**N**.(preencher) | 255.255.255.(preencher) | 200.136.**N**.(preencher) | 2001:DB8:CAFE:**NN**(preencher)::(preencher)/64 | EUI-64 | *FE80::1* |
 | **SRV-DV-DNS-DHCP** | NIC | 200.136.**N**.(preencher) | 255.255.255.(preencher) | 200.136.**N**.(preencher) | 2001:DB8:CAFE:**NN**(preencher)::(preencher)/64 | EUI-64 | *FE80::1* |
 | **SRV-DV-WEB** | NIC | 200.136.**N**.(preencher) | 255.255.255.(preencher) | 200.136.**N**.(preencher) | 2001:DB8:CAFE:**NN**(preencher)::(preencher)/64 | EUI-64 | *FE80::1* |
-| **AP-Pato Branco** | LAN (Gi1) | 200.136.**N**.(preencher) | 255.255.255.(preencher) | 200.136.**N**.(preencher) | (se disponível) | (se disponível) | (se disponível) |
-| **AP-Fco. Beltrão** | LAN (Gi1) | 200.136.**N**.(preencher) | 255.255.255.(preencher) | 200.136.**N**.(preencher) | (se disponível) | (se disponível) | (se disponível) |
-| **AP-Dois Vizinhos** | LAN (Gi1) | 200.136.**N**.(preencher) | 255.255.255.(preencher) | 200.136.**N**.(preencher) | (se disponível) | (se disponível) | (se disponível) |
+| **AP-Pato Branco — futuro** | LAN (Gi1) | 200.136.**N**.(preencher) | 255.255.255.(preencher) | 200.136.**N**.(preencher) | (preencher GUA/prefixo, se permitido) | Automático, se permitido | FE80::1, se permitido |
+| **AP-Fco. Beltrão — futuro** | LAN (Gi1) | 200.136.**N**.(preencher) | 255.255.255.(preencher) | 200.136.**N**.(preencher) | (preencher GUA/prefixo, se permitido) | Automático, se permitido | FE80::1, se permitido |
+| **AP-Dois Vizinhos — futuro** | LAN (Gi1) | 200.136.**N**.(preencher) | 255.255.255.(preencher) | 200.136.**N**.(preencher) | (preencher GUA/prefixo, se permitido) | Automático, se permitido | FE80::1, se permitido |
 | **Switch-Pato Branco** | SVI | 200.136.**N**.(preencher) | 255.255.255.(preencher) | 200.136.**N**.(preencher) | 2001:DB8:CAFE:**NN**(preencher)::(preencher)/64 | EUI-64 | *FE80::1* |
 | **Switch-Fco. Beltrão** | SVI | 200.136.**N**.(preencher) | 255.255.255.(preencher) | 200.136.**N**.(preencher) | 2001:DB8:CAFE:**NN**(preencher)::(preencher)/64 | EUI-64 | *FE80::1* |
 | **Switch-Dois Vizinhos** | SVI | 200.136.**N**.(preencher) | 255.255.255.(preencher) | 200.136.**N**.(preencher) | 2001:DB8:CAFE:**NN**(preencher)::(preencher)/64 | EUI-64 | *FE80::1* |
@@ -67,20 +72,12 @@
 | **Roteador-Dois Vizinhos** | Fa0/1 | 200.136.**N**.(preencher) | 255.255.255.(preencher) | **-** | 2001:DB8:CAFE:**NN**FF::(preencher):(preencher)/112 | EUI-64 | **-** |
 ---
 
-### Planejamento e Configuração do Wi-Fi — Tarefa 2
+### Planejamento do Endereçamento dos Clientes — Entrega 1
 
-| Campus | Nome do AP | Porta do AP ligada ao switch | SSID | Segurança | Senha do ambiente simulado | DHCP do AP |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| **Pato Branco** | ap-pb-(iniciais) | **Gi1** | UTFPR-PB-(iniciais) | WPA2-PSK / AES | (preencher; mínimo 10 caracteres) | Desativado |
-| **Francisco Beltrão** | ap-fb-(iniciais) | **Gi1** | UTFPR-FB-(iniciais) | WPA2-PSK / AES | (preencher; mínimo 10 caracteres) | Desativado |
-| **Dois Vizinhos** | ap-dv-(iniciais) | **Gi1** | UTFPR-DV-(iniciais) | WPA2-PSK / AES | (preencher; mínimo 10 caracteres) | Desativado |
-
-| Clientes | IPv4 | IPv6 | Gateway e DNS |
+| Clientes | IPv4 previsto | IPv6 previsto | Gateway e DNS |
 | :--- | :--- | :--- | :--- |
 | PCs cabeados de cada campus | DHCPv4 | SLAAC / DHCPv6 stateless | Infraestrutura da respectiva LAN |
-| Notebook Wi-Fi de cada campus | DHCPv4 | SLAAC / DHCPv6 stateless | Mesma infraestrutura utilizada pelos PCs cabeados |
-
-*Informe a porta utilizada no switch para conectar cada AP: PB: ______; FB: ______; DV: ______. Na extremidade do roteador sem fio, utilize obrigatoriamente a Gi1.*
+| Futuros notebooks Wi-Fi de cada campus | DHCPv4 | SLAAC / DHCPv6 stateless | Mesmas sub-redes, gateway e DNS utilizados pelos PCs cabeados |
 
 ---
 
@@ -160,16 +157,90 @@
 
 ---
 
-### Checklist para Entrega 1
+## 📶 Tarefa 9: Documentação da Expansão com Wi-Fi — Entrega 4
 
-- [ ] Tarefa 1: Tabela de Sub-Redes preenchida corretamente
-- [ ] Tarefa 2: Tabela de Endereçamento preenchida corretamente para todos os dispositivos de infraestrutura
-- [ ] APs incluídos no endereçamento e no planejamento do Wi-Fi
-- [ ] Clientes cabeados e sem fio previstos nas mesmas sub-redes
-- [ ] Documento salvo como trabalho-documentacao-v1-NomeAluno.md
+**Preencher na Entrega 4, após a aula sobre Wi-Fi.** O endereçamento dos APs já deverá constar na Tarefa 2 desde a Entrega 1. Nesta seção, registre os dados da configuração e os resultados da expansão.
 
-### Checklist para Entrega 2
+### Identificação e Conexões
 
-- [ ] Tarefas 1 e 2 revisadas e corrigidas, quando necessário
-- [ ] Tarefa 3: Tabelas de roteamento IPv4 e IPv6 completas para todos os roteadores
-- [ ] Documento salvo como trabalho-documentacao-v2-NomeAluno.md
+| Campus | Nome do AP | Modelo utilizado | Notebook | Porta do switch ligada ao AP | Porta do AP ligada ao switch |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Pato Branco** | ap-pb-(iniciais) | (preencher) | (preencher) | (preencher) | **Gi1** |
+| **Francisco Beltrão** | ap-fb-(iniciais) | (preencher) | (preencher) | (preencher) | **Gi1** |
+| **Dois Vizinhos** | ap-dv-(iniciais) | (preencher) | (preencher) | (preencher) | **Gi1** |
+
+### Parâmetros Wi-Fi
+
+| Campus | SSID configurado | Segurança | Criptografia | Senha do ambiente simulado | DHCP do AP |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Pato Branco** | (preencher) | (preencher) | (preencher) | (preencher; mínimo 10 caracteres) | (preencher) |
+| **Francisco Beltrão** | (preencher) | (preencher) | (preencher) | (preencher; mínimo 10 caracteres) | (preencher) |
+| **Dois Vizinhos** | (preencher) | (preencher) | (preencher) | (preencher; mínimo 10 caracteres) | (preencher) |
+
+Outros parâmetros Wi-Fi configurados e observações sobre os modelos utilizados: **(preencher)**.
+
+Confirmação de que os APs utilizam os endereços planejados na Tarefa 2: **(preencher)**.
+
+### Endereçamento Recebido pelos Notebooks
+
+| Campus | IPv4 / máscara | IPv6 GUA / prefixo | Gateway IPv4 | Gateway IPv6 | DNS IPv4 / IPv6 |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| **Pato Branco** | (preencher) | (preencher) | (preencher) | (preencher) | (preencher) |
+| **Francisco Beltrão** | (preencher) | (preencher) | (preencher) | (preencher) | (preencher) |
+| **Dois Vizinhos** | (preencher) | (preencher) | (preencher) | (preencher) | (preencher) |
+
+### Resultados dos Testes da Tarefa 9
+
+*Preencha cada célula com o resultado observado: “OK” ou a falha identificada.*
+
+| Teste | Pato Branco | Francisco Beltrão | Dois Vizinhos |
+| :--- | :--- | :--- | :--- |
+| Associação com senha correta e falha com senha incorreta | (preencher) | (preencher) | (preencher) |
+| IPv4/IPv6 automáticos e mesmos prefixos, gateway e DNS da LAN cabeada | (preencher) | (preencher) | (preencher) |
+| Ping para PC cabeado, gateway e Servidor Web local em IPv4/IPv6 | (preencher) | (preencher) | (preencher) |
+| Acesso ao Servidor Web local por nome | (preencher) | (preencher) | (preencher) |
+| Ping para os Servidores Web dos outros dois campi em IPv4/IPv6 | (preencher) | (preencher) | (preencher) |
+| Acesso aos Servidores Web remotos por nome | (preencher) | (preencher) | (preencher) |
+| Conexão pela Gi1, DHCP do AP desativado e rede cabeada funcional | (preencher) | (preencher) | (preencher) |
+
+---
+
+## Conferência das Entregas
+
+### Entrega 1 — Tarefas 1 e 2
+
+- [ ] Nome, RA e curso preenchidos.
+- [ ] Tarefa 1: sub-redes IPv4/IPv6 e reservas para expansão documentadas.
+- [ ] Tarefa 2: roteadores, switches e servidores com endereçamento completo.
+- [ ] Futuros APs com IPv4, máscara e gateway já calculados e registrados.
+- [ ] IPv6/prefixo e gateway dos APs planejados quando o modelo permitir; limitações de gerenciamento identificadas.
+- [ ] DHCPv4 e SLAAC/DHCPv6 stateless indicados para PCs e futuros notebooks.
+- [ ] Documento salvo como `trabalho-documentacao-v1-NomeAluno.md`.
+
+### Entrega 2 — Correções e Tarefa 3
+
+- [ ] Tarefas 1 e 2 revisadas e corrigidas, quando necessário, incluindo os futuros APs.
+- [ ] Tarefa 3: tabelas IPv4/IPv6 completas para todos os roteadores 2811.
+- [ ] Fluxo assimétrico conforme o enunciado.
+- [ ] Documento salvo como `trabalho-documentacao-v2-NomeAluno.md`.
+
+### Entrega 3 — Rede Cabeada
+
+- [ ] Documentação das Tarefas 1, 2 e 3 corrigida e coerente com a implementação.
+- [ ] Endereços dos futuros APs mantidos no planejamento e reservados.
+- [ ] Topologia cabeada da Figura 1 implementada e testes da Tarefa 8 realizados.
+- [ ] Scripts dos roteadores e switches incluídos, com um `.txt` por equipamento.
+- [ ] Arquivo `trabalho-entrega3-NomeAluno.zip` com documentação v3, scripts e topologia cabeada `.pkt`.
+
+### Entrega 4 — Final com Wi-Fi
+
+- [ ] APs e notebooks incluídos na mesma topologia, conforme a Figura 2.
+- [ ] Endereços dos APs configurados conforme o planejamento inicial.
+- [ ] Parâmetros Wi-Fi e resultados dos testes registrados nesta seção da Tarefa 9.
+- [ ] Cabo na Gi1 do AP, DHCP desativado e WPA2-PSK/AES configurado.
+- [ ] Notebooks nas mesmas sub-redes da LAN cabeada, com endereçamento automático.
+- [ ] Comunicação local e remota em IPv4/IPv6 e acesso aos serviços por nome conferidos.
+- [ ] Rede cabeada continua funcional após a expansão.
+- [ ] Arquivo `trabalho-final-NomeAluno.zip` com documentação final, scripts e topologia completa `.pkt`.
+
+Para conferir os itens pontuados e registrar a nota, utilize a [checklist de avaliação](checklist-avaliacao.md).
