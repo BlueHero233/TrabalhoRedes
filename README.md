@@ -322,15 +322,15 @@ Configure os PCs para receberem endereçamento automático e valide os serviços
 
 ## ✅ Tarefa 6: Testes dos Serviços e da Conectividade Cabeada
 
-Execute este roteiro em **Pato Branco, Francisco Beltrão e Dois Vizinhos**, utilizando os endereços da Tarefa 2 corrigida conforme o gabarito. Os mesmos resultados serão verificados na avaliação. Registre a autoavaliação no [checklist](checklist-avaliacao.md), obrigatório a partir da Entrega 2.
+Execute este roteiro em **Pato Branco, Francisco Beltrão e Dois Vizinhos**, utilizando os endereços da Tarefa 2 corrigida conforme o gabarito. Os mesmos resultados serão verificados na avaliação.
 
 ### 6.1. Preparação e Identificação da Origem
 
 - Confira a documentação, a identificação dos equipamentos, as descrições das interfaces e os endereços implementados.
 - Salve as configurações e o arquivo `.pkt`. A última conferência deverá ser feita na versão que será efetivamente entregue.
-- Escolha **um PC de cada LAN como origem principal dos testes** e registre sua identificação no checklist. O outro PC também será um destino dos testes.
+- Escolha **um PC de cada LAN como origem principal dos testes**. O outro PC também será um destino dos testes.
 - Confira o endereçamento automático **dos dois PCs** de cada LAN, conforme a Seção 6.2.
-- Antes de registrar uma falha, aguarde a estabilização da rede e repita o teste. Registre uma falha persistente com o equipamento, protocolo e resultado observados.
+- Se um teste falhar, aguarde a estabilização da rede e repita-o. Se a falha persistir, investigue o equipamento, o protocolo e o resultado observado.
 
 ### 6.2. Endereçamento Automático dos Clientes
 
@@ -376,7 +376,7 @@ Utilize `nslookup` para consultar os nomes e confira os registros A e AAAA defin
 
 No navegador do mesmo PC, acesse o domínio do próprio campus e confira se a página fornecida aparece com **nome, RA e campus corretos**.
 
-Se o acesso pelo nome falhar, teste o **endereço IP do Servidor Web** para distinguir o funcionamento do HTTP da resolução de nomes. Se a página abrir por IP, o serviço Web poderá receber a pontuação correspondente, mesmo que o DNS esteja com falha. Da mesma forma, pings bem-sucedidos não dependem de o HTTP estar ativo. Registre cada resultado no critério correspondente.
+Se o acesso pelo nome falhar, teste o **endereço IP do Servidor Web** para distinguir o funcionamento do HTTP da resolução de nomes. Se a página abrir por IP, o serviço Web poderá receber a pontuação correspondente, mesmo que o DNS esteja com falha. Da mesma forma, pings bem-sucedidos não dependem de o HTTP estar ativo.
 
 ### 6.6. Enlaces Diretamente Conectados entre Roteadores
 
@@ -392,9 +392,11 @@ Verifique as interfaces utilizadas dos cinco roteadores e teste a comunicação 
 
 O resultado esperado é a comunicação entre os vizinhos nos dois protocolos, com interfaces operacionais e parâmetros conforme a Tarefa 4. A comunicação entre LANs será implementada na **Tarefa 7 / Entrega 3**.
 
-### 6.7. Registro da Autoavaliação
+### 6.7. Conferência Antes da Entrega
 
-Preencha o checklist com **Atendido, Não atendido ou Não testado**, conforme o resultado realmente observado. Para marcar um critério como atendido, conclua todas as verificações vinculadas a ele. Descreva as pendências e procure o professor com antecedência quando precisar de auxílio. As regras de declaração incorreta e de atendimento estão na seção de avaliação deste enunciado.
+Após corrigir eventuais falhas, repita os testes afetados, salve as configurações e confira a versão final do arquivo `.pkt`. Utilize este roteiro para verificar se todos os requisitos da etapa estão funcionando; não é necessário preencher ou entregar uma ficha de testes.
+
+Se precisar de auxílio, procure o professor com antecedência, conforme as orientações de atendimento ao final dos critérios de avaliação.
 
 ---
 
@@ -421,7 +423,7 @@ Configure as rotas para as redes remotas necessárias aos testes. As rotas para 
 
 ### 7.3. Testes de Comunicação entre Redes
 
-1. **Conectividade total:** a partir de **um PC de cada uma das três LANs**, identificado no checklist, execute `ping` para **todas as outras interfaces endereçadas da topologia cabeada** (roteadores, switches, servidores e PCs), em **IPv4 e IPv6**.
+1. **Conectividade total:** a partir de **um PC de cada uma das três LANs**, execute `ping` para **todas as outras interfaces endereçadas da topologia cabeada** (roteadores, switches, servidores e PCs), em **IPv4 e IPv6**.
 2. **Escopo IPv6:** nos testes entre redes, utilize os endereços **GUA**. Os endereços link-local serão testados somente no respectivo enlace.
 3. **Resolução e acesso remoto:** no PC de teste de cada LAN, confirme a resolução dos nomes e o acesso às páginas dos **outros dois campi**. Se o acesso por nome falhar, teste por IP para avaliar o HTTP separadamente do DNS.
 4. **Roteamento assimétrico:** confira se as rotas configuradas correspondem às tabelas da **Seção 7.1** e ao fluxo exigido no enunciado.
@@ -618,7 +620,7 @@ Cada LAN recebe **0,40 ponto ou zero** neste bloco; cada enlace recebe **0,06 po
 | E2-PAG | Página exibida com nome, RA e campus corretos: **um terço do valor por LAN** | 0,20 |
 | | **Subtotal** | **0,50** |
 
-**Total da Entrega 2: 3,50 pontos**, antes dos descontos por correções documentais e declarações incorretas, quando aplicáveis.
+**Total da Entrega 2: 3,50 pontos**, antes dos descontos por correções documentais, quando aplicáveis.
 
 ### Detalhamento da Entrega 3 — Roteamento, Segurança e Rede Cabeada Completa
 
@@ -683,17 +685,7 @@ Cada LAN corresponde a um terço de cada linha. DNS e HTTP são verificados sepa
 
 **Total da Entrega 4: 2,00 pontos.**
 
-### Checklist Obrigatório e Declarações de Funcionamento
-
-O [checklist de autoavaliação](checklist-avaliacao.md) deverá ser entregue a partir da **Entrega 2**, atualizado nas Entregas 3 e 4. Preencha as seções já exigidas para a etapa e mantenha registradas as verificações anteriores. O checklist não acrescenta pontos ao total do trabalho; registra o que foi efetivamente testado no arquivo entregue.
-
-Use **A — Atendido**, **N — Não atendido** ou **T — Não testado**. A nota será atribuída pelos resultados verificados pelo professor. Declarar uma pendência ou que algo não foi testado não gera penalidade adicional por declaração incorreta.
-
-Se uma verificação marcada como **Atendido** apresentar falha confirmada no arquivo entregue, o critério ou parcela afetada perde a pontuação normal e recebe **desconto adicional de igual valor**. O adicional será aplicado **uma única vez por critério/parcela**, mesmo que várias verificações vinculadas a ele falhem. Uma falha transitória deverá ser confirmada pela repetição do teste nas mesmas condições antes de aplicar essa regra.
-
-Exemplo: uma parcela de 0,20 que não funciona recebe zero; se foi declarada como atendida, haverá ainda desconto de 0,20 em outros pontos apurados da mesma entrega, totalizando perda de 0,40 em relação ao máximo. Nas correções documentais da Entrega 2, uma tarefa ausente/incorreta gera o desconto de 0,50; se foi declarada como corrigida/atendida, aplica-se mais 0,50 pela declaração incorreta.
-
-A nota da entrega será a pontuação apurada, menos os descontos aplicáveis, **limitada ao mínimo de zero**. Os valores adicionais nunca serão multiplicados pelo número de testes que identificaram a mesma parcela não atendida. Itens preparatórios sem valor próprio não criam descontos adicionais independentes.
+A nota de cada entrega será calculada pelos critérios acima e pelos descontos aplicáveis, limitada ao mínimo de zero.
 
 ### Dificuldades e Atendimento Antes da Entrega
 
@@ -740,7 +732,6 @@ A seção de parâmetros Wi-Fi da Tarefa 9 no modelo será preenchida na **Entre
 Disponibilize os arquivos abaixo. Para envio direto pelo Moodle, reúna-os em **`trabalho-entrega2-NomeAluno.zip`**:
 
 - **`trabalho-documentacao-v2-NomeAluno.md`**: Tarefas 1 e 2 corrigidas conforme o gabarito e coerentes com a implementação, incluindo os endereços reservados para os futuros APs.
-- **`checklist-entrega2-NomeAluno.md`**: cópia preenchida do [checklist](checklist-avaliacao.md), com a autoavaliação das seções exigidas até esta etapa e as pendências registradas.
 - **Scripts dos roteadores e switches**: um arquivo `.txt` por equipamento, nomeado com o respectivo hostname, por exemplo `r-pb-nnn.txt` e `sw-pb-nnn.txt`, contendo os comandos de configuração utilizados nesta etapa.
 - **`trabalho-topologia-lans-NomeAluno.pkt`**: topologia da **Figura 1**, com a montagem da **Tarefa 3**, a configuração básica e o endereçamento de interfaces da **Tarefa 4**, os servidores e PCs da **Tarefa 5** e os testes da **Tarefa 6** concluídos. Cada LAN deverá funcionar internamente em IPv4 e IPv6, com DHCP, DNS e HTTP funcionais, e os enlaces entre roteadores deverão permitir a comunicação direta entre vizinhos.
 
@@ -753,7 +744,6 @@ As tabelas de roteamento, as rotas estáticas entre redes e a segurança básica
 Disponibilize os arquivos abaixo. Para envio direto pelo Moodle, reúna-os em **`trabalho-entrega3-NomeAluno.zip`**:
 
 - **`trabalho-documentacao-v3-NomeAluno.md`**: Tarefas 1 e 2 corrigidas e **tabelas de roteamento IPv4 e IPv6 da Seção 7.1**, para todos os roteadores, coerentes com a implementação. Mantenha registrados e reservados os endereços planejados dos futuros APs.
-- **`checklist-entrega3-NomeAluno.md`**: cópia preenchida do [checklist](checklist-avaliacao.md), com a autoavaliação das seções exigidas até esta etapa e as pendências registradas.
 - **Scripts dos roteadores e switches**: um arquivo `.txt` por equipamento, com a configuração atualizada, incluindo o roteamento e as medidas de segurança exigidas.
 - **`trabalho-topologia-cabeada-NomeAluno.pkt`**: evolução da topologia da Entrega 2, conforme a **Figura 1**, com as **Tarefas 3 a 8 concluídas**, incluindo os testes de comunicação entre redes e de segurança. A rede cabeada deverá funcionar integralmente em IPv4 e IPv6, com os serviços locais e remotos acessíveis.
 
@@ -764,7 +754,6 @@ Disponibilize os arquivos abaixo. Para envio direto pelo Moodle, reúna-os em **
 Após a aula sobre Wi-Fi, disponibilize os arquivos abaixo. Para envio direto pelo Moodle, reúna-os em **`trabalho-final-NomeAluno.zip`**:
 
 - **`trabalho-documentacao-final-NomeAluno.md`**: documentação completa e atualizada, com as Tarefas 1 e 2, as tabelas de roteamento da **Seção 7.1** e a seção Wi-Fi da **Tarefa 9**, incluindo SSIDs, senhas, segurança, conexões e testes.
-- **`checklist-final-NomeAluno.md`**: cópia preenchida do [checklist](checklist-avaliacao.md), com a autoavaliação das seções exigidas até esta etapa e as pendências registradas.
 - **Scripts dos roteadores e switches**, correspondentes à versão final do projeto.
 - **`trabalho-topologia-final-NomeAluno.pkt`**: versão expandida da topologia da Entrega 3, conforme a **Figura 2**, com os três APs e notebooks configurados, serviços e conectividade IPv4/IPv6 funcionando.
 
