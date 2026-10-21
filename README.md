@@ -423,10 +423,17 @@ Configure as rotas para as redes remotas necessárias aos testes. As rotas para 
 
 ### 7.3. Testes de Comunicação entre Redes
 
-1. **Conectividade total:** a partir de **um PC de cada uma das três LANs**, execute `ping` para **todas as outras interfaces endereçadas da topologia cabeada** (roteadores, switches, servidores e PCs), em **IPv4 e IPv6**.
-2. **Escopo IPv6:** nos testes entre redes, utilize os endereços **GUA**. Os endereços link-local serão testados somente no respectivo enlace.
-3. **Resolução e acesso remoto:** no PC de teste de cada LAN, confirme a resolução dos nomes e o acesso às páginas dos **outros dois campi**. Se o acesso por nome falhar, teste por IP para avaliar o HTTP separadamente do DNS.
-4. **Roteamento assimétrico:** confira se as rotas configuradas correspondem às tabelas da **Seção 7.1** e ao fluxo exigido no enunciado.
+1. **Origem dos testes:** escolha **um único PC, de qualquer uma das LANs**, e utilize-o para os testes de conectividade entre redes abaixo.
+2. **Cada interface de cada LAN remota:** execute `ping` para a interface LAN do roteador, a SVI de gerenciamento do switch, cada PC e cada servidor de **todas as outras LANs**.
+3. **Cada interface de cada WAN:** execute `ping` para os endereços das **duas extremidades de cada um dos cinco enlaces entre roteadores**, incluindo os enlaces ligados ao roteador da LAN de origem.
+4. **IPv4 e IPv6:** repita **todos os pings** nos dois protocolos. No IPv6, utilize os endereços **GUA**; os endereços link-local serão testados somente no respectivo enlace.
+
+**É necessário testar cada interface individualmente: um ping para apenas um endereço de cada LAN ou WAN não atende ao requisito.** A conectividade dentro da LAN de origem é verificada conforme a Tarefa 6.
+
+Além desses pings, verifique os serviços e o fluxo das rotas:
+
+- **Resolução e acesso remoto:** no PC de teste de cada LAN, confirme a resolução dos nomes e o acesso às páginas dos **outros dois campi**. Se o acesso por nome falhar, teste por IP para avaliar o HTTP separadamente do DNS.
+- **Roteamento assimétrico:** confira se as rotas configuradas correspondem às tabelas da **Seção 7.1** e ao fluxo exigido no enunciado.
 
 ---
 
@@ -579,7 +586,7 @@ Nas **Entregas 2, 3 e 4**, as evidências são o comportamento da topologia `.pk
 
 Conectividade, endereçamento automático, DNS e HTTP são avaliados pelos respectivos resultados. Por exemplo, HTTP acessível por IP pode pontuar mesmo com falha no DNS; uma página acessível não comprova o alcance de todas as outras interfaces. Cada critério será verificado de forma independente.
 
-Nos critérios funcionais por LAN das **Entregas 2 e 4**, quando uma linha abranger as três LANs, cada LAN corresponderá a **um terço do valor dessa linha**. Aplica-se **TUDO-OU-NADA por requisito e por LAN**: a parcela será atribuída somente quando todas as verificações do requisito estiverem atendidas naquela LAN. Uma falha não zera automaticamente outros critérios comprovadamente atendidos nem as parcelas das demais LANs. Os enlaces da Entrega 2 serão avaliados individualmente. Arredonde somente a nota final de cada entrega para duas casas decimais.
+Nos critérios funcionais por LAN das **Entregas 2 e 4**, aplica-se **TUDO-OU-NADA por requisito e por LAN**: a parcela será atribuída somente quando todas as verificações do requisito estiverem atendidas naquela LAN. Uma falha não zera automaticamente outros critérios comprovadamente atendidos nem as parcelas das demais LANs. Os enlaces da Entrega 2 serão avaliados individualmente. Arredonde somente a nota final de cada entrega para duas casas decimais.
 
 ### Detalhamento da Entrega 1 — Planejamento Realizado
 
@@ -617,7 +624,7 @@ Cada LAN recebe **0,40 ponto ou zero** neste bloco; cada enlace recebe **0,06 po
 | ID | Evidência avaliada | Valor |
 | :--- | :--- | ---: |
 | E2-HTTP | HTTP local disponível a partir do PC de teste; se o DNS falhar, confirme o serviço por IP: **0,10 por LAN** | 0,30 |
-| E2-PAG | Página exibida com nome, RA e campus corretos: **um terço do valor por LAN** | 0,20 |
+| E2-PAG | Página exibida com nome, RA e campus corretos: **0,20 ÷ 3 por LAN** | 0,20 |
 | | **Subtotal** | **0,50** |
 
 **Total da Entrega 2: 3,50 pontos**, antes dos descontos por correções documentais, quando aplicáveis.
@@ -636,8 +643,8 @@ Cada LAN recebe **0,40 ponto ou zero** neste bloco; cada enlace recebe **0,06 po
 
 | ID | Evidência avaliada | Valor |
 | :--- | :--- | ---: |
-| E3-R4 | Todas as interfaces avaliadas das LANs e WANs acessíveis em IPv4 a partir dos PCs de teste das três LANs, com o fluxo exigido | 1,00 |
-| E3-R6 | Mesmo resultado completo em IPv6 GUA | 1,00 |
+| E3-R4 | A partir de **um PC de qualquer LAN**, obter resposta ao `ping` em **IPv4** de **cada interface endereçada de cada LAN remota** (interface LAN do roteador, SVI do switch, cada PC e cada servidor) e das **duas extremidades de cada enlace WAN**, respeitando o fluxo exigido | 1,00 |
+| E3-R6 | A partir de **um PC de qualquer LAN**, obter resposta ao `ping` em **IPv6 GUA** de **cada interface endereçada de cada LAN remota** (interface LAN do roteador, SVI do switch, cada PC e cada servidor) e das **duas extremidades de cada enlace WAN**, respeitando o fluxo exigido | 1,00 |
 | | **Subtotal** | **2,00** |
 
 Aplica-se **TUDO-OU-NADA por protocolo** nestes dois critérios: cada um recebe a pontuação integral ou zero, sem pontuação parcial. Uma falha persistente em qualquer interface avaliada implica zero naquele protocolo.
@@ -672,20 +679,16 @@ Cada roteador corresponde a **um quinto do valor de cada requisito de segurança
 
 | ID | Evidência avaliada nas três LANs | Valor |
 | :--- | :--- | ---: |
-| E4-AP | AP integrado pela Gi1, gerenciamento acessível conforme o planejamento e sem fornecer DHCP/RA próprios, respeitadas as limitações documentadas na Seção 9.2 | 0,40 |
-| E4-ASS | Associação ao SSID correto com WPA2-PSK/AES e senha válida; senha incorreta recusada | 0,40 |
-| E4-AUTO | Notebook obtém automaticamente IPv4, IPv6, gateways e DNS corretos dos serviços do campus | 0,40 |
-| E4-CON | Notebook alcança os destinos locais e remotos exigidos em IPv4 e IPv6, incluindo os outros notebooks, com a rede cabeada funcional | 0,40 |
-| E4-DNS | Resolução correta dos três domínios a partir dos notebooks | 0,15 |
-| E4-WEB | HTTP e páginas personalizadas dos três campi acessíveis pelos notebooks; confirme por IP se houver falha de DNS | 0,15 |
-| E4-DOC | Identificação dos equipamentos e documentação Wi-Fi completas e coerentes com a implementação | 0,10 |
+| E4-AP | AP integrado pela Gi1, gerenciamento acessível conforme o planejamento e sem fornecer DHCP/RA próprios, respeitadas as limitações documentadas na Seção 9.2: **0,40 ÷ 3 por LAN** | 0,40 |
+| E4-ASS | Associação ao SSID correto com WPA2-PSK/AES e senha válida; senha incorreta recusada: **0,40 ÷ 3 por LAN** | 0,40 |
+| E4-AUTO | Notebook obtém automaticamente IPv4, IPv6, gateways e DNS corretos dos serviços do campus: **0,40 ÷ 3 por LAN** | 0,40 |
+| E4-CON | Notebook alcança os destinos locais e remotos exigidos em IPv4 e IPv6, incluindo os outros notebooks, com a rede cabeada funcional: **0,40 ÷ 3 por LAN** | 0,40 |
+| E4-DNS | Resolução correta dos três domínios a partir dos notebooks: **0,05 por LAN** | 0,15 |
+| E4-WEB | HTTP e páginas personalizadas dos três campi acessíveis pelos notebooks; confirme por IP se houver falha de DNS: **0,05 por LAN** | 0,15 |
+| E4-DOC | Identificação dos equipamentos e documentação Wi-Fi completas e coerentes com a implementação: **0,10 ÷ 3 por LAN** | 0,10 |
 | | **Subtotal** | **2,00** |
 
-Cada LAN corresponde a um terço de cada linha. DNS e HTTP são verificados separadamente, preservando os pontos dos resultados comprovados.
-
 **Total da Entrega 4: 2,00 pontos.**
-
-A nota de cada entrega será calculada pelos critérios acima e pelos descontos aplicáveis, limitada ao mínimo de zero.
 
 ### Dificuldades e Atendimento Antes da Entrega
 
@@ -708,9 +711,9 @@ Para os arquivos enviados pelo Moodle, será considerada a **data e o horário d
 | :--- | :--- | :--- | ---: |
 | Disponibilização | **15/10/2026 (quinta-feira)** | Enunciado, topologias e modelo de documentação. | — |
 | **Entrega 1** | **20/10/2026 (terça-feira)** | Tarefas 1 e 2: sub-redes e endereçamento, incluindo os futuros APs. | **1,00** |
-| **Entrega 2 — Funcionamento das LANs** | **27/10/2026 (terça-feira), no início da aula** | Tarefas 1 e 2 corrigidas; Tarefas 3 a 6: topologia cabeada, configuração básica e endereçamento, serviços, conectividade interna das LANs e enlaces diretos entre roteadores. | **3,50** |
-| **Entrega 3 — Rede cabeada completa** | **10/11/2026 (terça-feira)** | Tarefas 7 e 8: tabelas e configuração de roteamento estático IPv4/IPv6, comunicação entre redes e segurança básica, mantendo os serviços locais funcionando. | **3,50** |
-| **Entrega 4 — Final, com Wi-Fi** | **A definir após a aula sobre Wi-Fi** | Tarefa 9: expansão com APs e notebooks e complementação da documentação. | **2,00** |
+| **Entrega 2 — Funcionamento das LANs** | **27/10/2026 (terça-feira), até o início da aula** | Tarefas 1 e 2 corrigidas; Tarefas 3 a 6: topologia cabeada, configuração básica e endereçamento, serviços, conectividade interna das LANs e enlaces diretos entre roteadores. | **3,50** |
+| **Entrega 3 — Rede cabeada completa** | **10/11/2026 (terça-feira), até o início da aula** | Tarefas 7 e 8: tabelas e configuração de roteamento estático IPv4/IPv6, comunicação entre redes e segurança básica, mantendo os serviços locais funcionando. | **3,50** |
+| **Entrega 4 — Final, com Wi-Fi** | **17/11/2026 (terça-feira), até o início da aula** | Tarefa 9: expansão com APs e notebooks e complementação da documentação. | **2,00** |
 | | | **Total** | **10,00** |
 
 ### Entrega 1 — Sub-redes e Endereçamento
@@ -723,8 +726,6 @@ Entregar **`trabalho-documentacao-v1-NomeAluno.md`**, seguindo o [modelo de docu
 - **Endereços dos futuros APs:** IPv4, máscara e gateway; IPv6/prefixo e gateway. Os endereços deverão estar calculados e registrados nesta entrega, mesmo que os APs sejam acrescentados à topologia somente na Entrega 4.
 - Indicação de DHCPv4 e SLAAC/DHCPv6 stateless para os PCs e futuros notebooks.
 
-A seção de parâmetros Wi-Fi da Tarefa 9 no modelo será preenchida na **Entrega 4**.
-
 **Prazo: 20/10/2026.** Nesta etapa, avalia-se a realização das tarefas, conforme os critérios. O [gabarito das Tarefas 1 e 2](trabalho-documentacao-gabarito.md) foi disponibilizado para conferência e correções nas próximas versões da documentação.
 
 ### Entrega 2 — Configuração Básica, Serviços e Funcionamento das LANs
@@ -735,9 +736,7 @@ Disponibilize os arquivos abaixo. Para envio direto pelo Moodle, reúna-os em **
 - **Scripts dos roteadores e switches**: um arquivo `.txt` por equipamento, nomeado com o respectivo hostname, por exemplo `r-pb-nnn.txt` e `sw-pb-nnn.txt`, contendo os comandos de configuração utilizados nesta etapa.
 - **`trabalho-topologia-lans-NomeAluno.pkt`**: topologia da **Figura 1**, com a montagem da **Tarefa 3**, a configuração básica e o endereçamento de interfaces da **Tarefa 4**, os servidores e PCs da **Tarefa 5** e os testes da **Tarefa 6** concluídos. Cada LAN deverá funcionar internamente em IPv4 e IPv6, com DHCP, DNS e HTTP funcionais, e os enlaces entre roteadores deverão permitir a comunicação direta entre vizinhos.
 
-As tabelas de roteamento, as rotas estáticas entre redes e a segurança básica serão entregues na **Entrega 3**.
-
-**Prazo: 27/10/2026, no início da aula.**
+**Prazo: 27/10/2026, até o início da aula.**
 
 ### Entrega 3 — Roteamento, Segurança e Rede Cabeada Completa
 
@@ -747,7 +746,7 @@ Disponibilize os arquivos abaixo. Para envio direto pelo Moodle, reúna-os em **
 - **Scripts dos roteadores e switches**: um arquivo `.txt` por equipamento, com a configuração atualizada, incluindo o roteamento e as medidas de segurança exigidas.
 - **`trabalho-topologia-cabeada-NomeAluno.pkt`**: evolução da topologia da Entrega 2, conforme a **Figura 1**, com as **Tarefas 3 a 8 concluídas**, incluindo os testes de comunicação entre redes e de segurança. A rede cabeada deverá funcionar integralmente em IPv4 e IPv6, com os serviços locais e remotos acessíveis.
 
-**Prazo: 10/11/2026.**
+**Prazo: 10/11/2026, até o início da aula.**
 
 ### Entrega 4 — Entrega Final com Wi-Fi
 
@@ -757,7 +756,7 @@ Após a aula sobre Wi-Fi, disponibilize os arquivos abaixo. Para envio direto pe
 - **Scripts dos roteadores e switches**, correspondentes à versão final do projeto.
 - **`trabalho-topologia-final-NomeAluno.pkt`**: versão expandida da topologia da Entrega 3, conforme a **Figura 2**, com os três APs e notebooks configurados, serviços e conectividade IPv4/IPv6 funcionando.
 
-**Prazo: a definir após a aula sobre Wi-Fi, com divulgação no Moodle.**
+**Prazo: 17/11/2026, até o início da aula.**
 
 **Não serão aceitas entregas após os respectivos prazos.**
 
