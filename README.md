@@ -21,15 +21,15 @@ Ao concluir esta atividade, você será capaz de demonstrar que obteve as seguin
 
 ## Descrição da Atividade e Topologia
 
-Neste trabalho, você deverá projetar e implementar uma rede que interliga centros de pesquisa associados aos campi da UTFPR em **Pato Branco, Francisco Beltrão e Dois Vizinhos**. O trabalho será desenvolvido em etapas: planejamento, implementação da rede cabeada e expansão com acesso Wi-Fi.
+Neste trabalho, você deverá projetar e implementar uma rede que interliga centros de pesquisa associados aos campi da UTFPR em **Pato Branco, Francisco Beltrão e Dois Vizinhos**. O trabalho será desenvolvido em etapas: planejamento, montagem e funcionamento das LANs, comunicação entre redes, segurança básica e expansão com acesso Wi-Fi.
 
-A **Figura 1** apresenta a topologia cabeada que deverá estar implementada e funcional na **Entrega 3**.
+A **Figura 1** apresenta a topologia cabeada do trabalho. Na **Entrega 2**, cada LAN deverá funcionar internamente, com os serviços locais configurados. Na **Entrega 3**, a rede cabeada deverá estar completa, com comunicação entre campi em IPv4 e IPv6 e segurança básica.
 
 <a id="figura1"></a>
 
-![Figura 1: Topologia física cabeada do trabalho.](topologia-trabalho-semwifi.png "Topologia cabeada — Entrega 3")
+![Figura 1: Topologia física cabeada do trabalho.](topologia-trabalho-semwifi.png "Topologia cabeada — Entregas 2 e 3")
 
-*Figura 1 — Topologia física cabeada, utilizada nas Tarefas 4 a 8 e na Entrega 3.*
+*Figura 1 — Topologia física cabeada, utilizada nas Tarefas 3 a 8 e nas Entregas 2 e 3.*
 
 Cada LAN deverá conter **2 PCs cabeados e 2 servidores**, conectados ao switch do campus. Os roteadores deverão interligar as LANs, com roteamento funcional em **IPv4 e IPv6**.
 
@@ -144,19 +144,9 @@ Ao documentar o endereçamento dos PCs, Notebooks, Servidores e Switches, o **De
 
 -----
 
-## 🗺️ Tarefa 3: Roteamento Estático (Tabelas - Documentação) (0,5 Ponto)
+## 💻 Tarefa 3: Criação da Topologia Cabeada no Packet Tracer (0,0 Ponto)
 
-Esta tarefa consiste em definir e documentar as rotas estáticas necessárias em **TODOS** os roteadores modelo 2811 para garantir a conectividade entre as LANs. O fluxo de pacotes entre as LANs deve percorrer o anel no **sentido horário**, produzindo caminhos distintos de ida e volta. Por exemplo:
-
-- **Ida:** Pato Branco $\rightarrow$ Vitorino $\rightarrow$ Francisco Beltrão.
-- **Volta:** Francisco Beltrão $\rightarrow$ Itapejara D’Oeste $\rightarrow$ Pato Branco. 
-
-Para cada roteador, identifique as redes remotas que precisam de rotas estáticas, documente as **Tabelas de Roteamento** para IPv4 e IPv6 conforme o [modelo](trabalho-documentacao-modelo.md).
-  - Neste trabalho, rotas para redes diretamente conectadas não precisam ser documentadas, mas lembre-se que essas rotas existem nos roteadores e são configuradas automaticamente pelo sistema operacional do roteador.
-
-## 💻 Tarefa 4: Criação da Topologia Cabeada no Packet Tracer (0,0 Ponto)
-
-Crie a topologia cabeada conforme a [Figura 1](#figura1), que será utilizada na **Entrega 3**:
+Crie a topologia cabeada conforme a [Figura 1](#figura1). Ela será utilizada na **Entrega 2** para o funcionamento interno das LANs e ampliada nas etapas seguintes:
 
 - Cada LAN deverá conter **2 PCs cabeados e 2 servidores**, conectados ao switch do campus.
 - Utilize **roteadores modelo 2811**, adicionando uma interface **WIC-2T no slot 0** para as conexões WAN, e **switches modelo 2960**, equipamentos disponíveis no laboratório de redes.
@@ -164,51 +154,51 @@ Crie a topologia cabeada conforme a [Figura 1](#figura1), que será utilizada na
 - Recomenda-se inserir as informações de endereçamento na área de trabalho para facilitar a visualização.
 - Mantenha o **quinto endereço IPv4 válido reservado para o futuro AP**, conforme o planejamento. Os APs e notebooks serão acrescentados à topologia na **Tarefa 9 / Entrega 4**.
 
-## ⚙️ Tarefa 5: Configuração dos Dispositivos Intermediários (Switches e Roteadores)
+---
 
-Esta tarefa consiste na configuração, via *command line interface* (CLI), do endereçamento dos switches e roteadores modelo 2811, assim como das rotas estáticas nos roteadores, conforme a documentação das Tarefas 2 e 3.
+## ⚙️ Tarefa 4: Configuração Básica e Endereçamento de Interfaces
 
-### 5.1. Configuração Básica e Endereçamento de Interfaces
+Configure, via *command line interface* (CLI), os switches e roteadores modelo 2811 conforme o plano de endereçamento da **Tarefa 2**. Esta tarefa integra a **Entrega 2**. O planejamento e a configuração das rotas estáticas serão realizados na **Tarefa 7 / Entrega 3**.
 
-1.  **Nomes dos Dispositivos (Hostname):**
-    Nomear os roteadores e switches no IOS conforme o padrão: `r-pb-nnn`, `sw-pb-nnn`, etc., em que `nnn` são as iniciais do seu nome (Ex: `r-pb-ff`).
-    * Roteador Pato Branco: `r-pb-nnn`
-    * Roteador Francisco Beltrão: `r-fb-nnn`
-    * Roteador Itapejara: `r-ita-nnn`
-    * Roteador Vitorino: `r-vit-nnn`
-    * Roteador Dois Vizinhos: `r-dv-nnn`
-    * Switch Pato Branco: `sw-pb-nnn`
-    * Switch Francisco Beltrão: `sw-fb-nnn`
-    * Switch Dois Vizinhos: `sw-dv-nnn`
+### 4.1. Identificação dos Dispositivos
 
-2.  **Endereçamento Estático:**
-    Atribuir os endereços IP (IPv4/Máscara e IPv6/Prefixos) a **TODAS** as interfaces de switches (SVI) e roteadores, conforme documentado na Tarefa 2.
-     > **💡 Lembrete**: Para IPv6 nos switches, lembre-se de configurar o template dual-stack conforme visto em aula.
+Defina o hostname no IOS conforme o padrão abaixo, em que `nnn` são as iniciais do seu nome (exemplo: `r-pb-ff`):
 
+| Dispositivo | Hostname |
+| :--- | :--- |
+| Roteador Pato Branco | `r-pb-nnn` |
+| Roteador Francisco Beltrão | `r-fb-nnn` |
+| Roteador Itapejara | `r-ita-nnn` |
+| Roteador Vitorino | `r-vit-nnn` |
+| Roteador Dois Vizinhos | `r-dv-nnn` |
+| Switch Pato Branco | `sw-pb-nnn` |
+| Switch Francisco Beltrão | `sw-fb-nnn` |
+| Switch Dois Vizinhos | `sw-dv-nnn` |
 
-3.  **Descrições de Interfaces:**
-    Inserir descrições em todas as interfaces dos roteadores, indicando a rede ou enlace ao qual estão conectadas:
-    * Exemplo: `description LAN Pato Branco`
-    * Exemplo: `description Enlace pb-vit`
+### 4.2. Endereçamento e Gateways
 
-4.  **Sincronização (Clock Rate):**
-    A interface serial `Se0/0/0` de cada enlace será o DCE e deve ser configurada com o comando:
-    * `clock rate 56000`
-    * *Nota: Este comando deve ser aplicado apenas nas interfaces seriais designadas como DCE.*
+1. **Endereçamento estático:** atribua IPv4/máscara e IPv6/prefixo às interfaces físicas utilizadas dos roteadores e às SVIs de gerenciamento dos switches, conforme a **Tarefa 2**. No IPv6, lembre-se de configurar também os endereços link-local previstos nessa tarefa. Ative (ligue) as interfaces de rede utilizadas.
+2. **IPv6 nos switches:** ative a pilha dupla por meio do **SDM dual-stack**, conforme visto em aula, e reinicie o equipamento, quando solicitado, antes de configurar o IPv6 na SVI.
+3. **Gateway IPv4 dos switches:** configure o gateway padrão conforme o endereçamento documentado na **Tarefa 2**.
+4. **Gateway IPv6 dos switches:** não é necessário configurá-lo manualmente, pois será aprendido automaticamente pelos anúncios **Router Advertisement (RA)** do roteador da LAN.
+5. **IPv6 nos roteadores:** habilite o roteamento IPv6 com `ipv6 unicast-routing`. Essa configuração já é necessária nesta etapa para que os roteadores enviem os RAs utilizados pelos clientes e pelos switches da LAN.
 
-### 5.2. Configuração de Roteamento Estático
+### 4.3. Descrições de Interfaces
 
-Implementar as rotas estáticas definidas na Tarefa 3 em todos os roteadores.
-> *Lembre-se:* somente é necessário configurar rotas estáticas para redes remotas; rotas para redes diretamente conectadas são configuradas **automaticamente** pelos roteadores.
+Insira uma descrição na **SVI de gerenciamento de cada switch** e em **cada interface utilizada dos roteadores**, identificando a LAN ou o enlace ao qual está conectada (por exemplo, **LAN Pato Branco** ou **Enlace pb-vit**).
 
-> **💡 Configuração IPv6 em Roteadores**: É necessário ativar o roteamento IPv6 com o comando `ipv6 unicast-routing` no modo de configuração global.
+### 4.4. Sincronização e Salvamento
 
+- Configure a taxa de clock de **56000** nas interfaces seriais **Se0/0/0 designadas como DCE**, conforme a Tarefa 2.
+- Salve as configurações dos switches e roteadores para que sejam mantidas após a reinicialização dos equipamentos.
 
-## 💻 Tarefa 6: Configuração dos Serviços e PCs Cabeados
+---
 
-Configure o endereçamento estático dos servidores, ative os serviços DHCP, DNS e Web e configure os PCs cabeados para receberem endereçamento automático. Os serviços da LAN também atenderão os notebooks quando a expansão Wi-Fi for implementada na Tarefa 9.
+## 💻 Tarefa 5: Configuração dos Serviços e PCs Cabeados
 
-### 6.1. Configuração do Endereçamento Estático nos Servidores
+Configure o endereçamento estático dos servidores, ative os serviços DHCP, DNS e Web e configure os PCs cabeados para receberem endereçamento automático. Esta tarefa integra a **Entrega 2**. Os serviços da LAN também atenderão os notebooks quando a expansão Wi-Fi for implementada na Tarefa 9.
+
+### 5.1. Configuração do Endereçamento Estático nos Servidores
 
 Atribua manualmente os endereços IPv4 e IPv6 aos Servidores no Packet Tracer (Desktop $\rightarrow$ IP Configuration), utilizando as regras de endereçamento fixo definidas na [**Tarefa 2**](#tarefa-2):
 
@@ -219,11 +209,11 @@ Atribua manualmente os endereços IPv4 e IPv6 aos Servidores no Packet Tracer (D
     * **IPv4:** Atribua o endereço IPv4, Máscara, Default Gateway e o Servidor DNS.
     * **IPv6:** Atribua o endereço IPv6 (Global com Prefix) e o **Gateway Padrão (Link-Local do Roteador: `FE80::1`)**.
 
-### 6.2. Configuração do Serviço Web (Nos Servidores Web)
+### 5.2. Configuração do Serviço Web (Nos Servidores Web)
 
 Ative o serviço **HTTP** e substitua o arquivo `index.html` com o código HTML fornecido ([**Apêndice**](#apêndice-código-html-padrão-para-servidores-web)), personalizando o **Nome, RA e o Campus** correto.
 
-### 6.3. Configuração do Serviço DNS (Nos Servidores DNS/DHCP)
+### 5.3. Configuração do Serviço DNS (Nos Servidores DNS/DHCP)
 
 Ative o serviço **DNS** e configure o registro Tipo A (IPv4) e Tipo AAAA (IPv6) em cada um dos três servidores DNS para **todos os servidores WEB**, garantindo que a resolução de nomes de campi remotos funcione.
 
@@ -239,11 +229,11 @@ Ative o serviço **DNS** e configure o registro Tipo A (IPv4) e Tipo AAAA (IPv6)
 | **Francisco Beltrão** | `www.fb.utfpr.tec.br` | IPv4 e IPv6 GUA do SRV-FB-WEB (4º IP de FB) |
 | **Dois Vizinhos** | `www.dv.utfpr.tec.br` | IPv4 e IPv6 GUA do SRV-DV-WEB (4º IP de DV) |
 
-### 6.4. Configuração do Serviço DHCP (Nos Servidores DNS/DHCP)
+### 5.4. Configuração do Serviço DHCP (Nos Servidores DNS/DHCP)
 
 Ative e configure os serviços de **DHCPv4** e **DHCPv6 Stateless** em cada servidor DNS/DHCP para atender os PCs cabeados e notebooks sem fio de sua respectiva LAN.
 
-#### 6.4.1. Configuração do Serviço DHCPv4
+#### 5.4.1. Configuração do Serviço DHCPv4
 
 Configure o serviço DHCP para distribuir endereços IPv4 automaticamente.
 
@@ -270,7 +260,7 @@ Configure o serviço DHCP para distribuir endereços IPv4 automaticamente.
 | **Francisco Beltrão** | /27 | 30 | 255.255.255.224 | 25 |
 | **Dois Vizinhos** | /27 | 30 | 255.255.255.224 | 25 |
 
-#### 6.4.2. Configuração do Serviço DHCPv6 Stateless
+#### 5.4.2. Configuração do Serviço DHCPv6 Stateless
 
 Configure o serviço DHCPv6 Stateless para fornecer informações de DNS IPv6 automaticamente.
 
@@ -286,7 +276,7 @@ Configure o serviço DHCPv6 Stateless para fornecer informações de DNS IPv6 au
 
 ##### Configuração adicional nos roteadores:
 
-Para habilitar o DHCPv6 Stateless, configure em **cada roteador** na interface Fa0/0:
+Com `ipv6 unicast-routing` já habilitado na Tarefa 4, configure a interface Fa0/0 do **roteador de cada campus** para anunciar o uso de DHCPv6 stateless:
 
 ```cisco
 interface FastEthernet0/0
@@ -295,7 +285,7 @@ interface FastEthernet0/0
 
 > **💡 Nota**: O comando `ipv6 nd other-config-flag` informa aos clientes para obter configurações adicionais (DNS) via DHCPv6 Stateless.
 
-### 6.5. Configuração dos PCs Cabeados
+### 5.5. Configuração dos PCs Cabeados
 
 Configure os PCs para receberem endereçamento automático e valide os serviços da LAN. Esse mesmo procedimento será aplicado aos notebooks na Tarefa 9, após a associação ao Wi-Fi.
 
@@ -325,12 +315,57 @@ Configure os PCs para receberem endereçamento automático e valide os serviços
     * **Teste 1 (Servidor Local):** No `Command Prompt`, execute `ping` para o IP IPv4 do Servidor Web local.
     * **Teste 2 (Acesso Web):** No `Web Browser` do PC, acesse o domínio local (`http://www.pb.utfpr.tec.br`) para confirmar se a página personalizada é exibida.
 
+---
 
-## 🔒 Tarefa 7: Configuração de Segurança Básica
+## ✅ Tarefa 6: Testes dos Serviços e da Conectividade Local
 
-Esta tarefa consiste na implementação de medidas de segurança e acesso seguro, via CLI, em **TODOS os roteadores modelo 2811**. A segurança dos roteadores sem fio utilizados como APs será configurada na **Tarefa 9 / Entrega 4**. 
+Valide o funcionamento interno de **cada LAN** da topologia cabeada. Estes testes integram a **Entrega 2**, juntamente com a montagem da topologia e as configurações das Tarefas 4 e 5.
 
-### 7.1. Implementação de Medidas de Segurança
+Em cada LAN:
+
+1. **DHCP/SLAAC:** execute `ipconfig /all` nos PCs e confira IPv4, máscara, IPv6 GUA, gateways e DNS recebidos automaticamente.
+2. **Conectividade local:** execute `ping`, em IPv4 e IPv6, dos PCs para o gateway, a SVI do switch e os servidores locais. Teste também a comunicação entre os dois PCs.
+3. **DNS e HTTP:** confirme a resolução dos nomes e acesse, no navegador, a página do Servidor Web do campus, verificando a identificação personalizada.
+
+Confirme o funcionamento em Pato Branco, Francisco Beltrão e Dois Vizinhos. Nesta entrega, será avaliado o funcionamento **dentro de cada LAN**. A comunicação entre LANs será implementada e avaliada na **Tarefa 7 / Entrega 3**.
+
+---
+
+## 🗺️ Tarefa 7: Roteamento Estático e Comunicação entre Redes
+
+Após validar as LANs localmente, planeje e implemente o roteamento estático IPv4 e IPv6. A documentação, a configuração e os testes desta tarefa integram a **Entrega 3**.
+
+### 7.1. Planejamento e Documentação das Tabelas de Roteamento (0,5 Ponto)
+
+Defina e documente as rotas estáticas necessárias em **TODOS** os roteadores modelo 2811 para garantir a conectividade entre as LANs e o acesso às interfaces avaliadas nos testes entre redes. O fluxo de pacotes entre as LANs deve percorrer o anel no **sentido horário**, produzindo caminhos distintos de ida e volta. Por exemplo:
+
+- **Ida:** Pato Branco $\rightarrow$ Vitorino $\rightarrow$ Francisco Beltrão.
+- **Volta:** Francisco Beltrão $\rightarrow$ Itapejara D’Oeste $\rightarrow$ Pato Branco. 
+
+Para cada roteador, identifique as redes remotas que precisam de rotas estáticas e preencha as **tabelas de roteamento IPv4 e IPv6** na seção correspondente do [modelo de documentação](trabalho-documentacao-modelo.md).
+
+As rotas para redes diretamente conectadas não precisam ser documentadas nesta seção: elas são inseridas automaticamente na tabela quando as interfaces estão endereçadas e operacionais.
+
+### 7.2. Configuração das Rotas Estáticas
+
+Implemente em todos os roteadores 2811 as rotas estáticas IPv4 e IPv6 documentadas na seção 7.1, respeitando o sentido de circulação exigido. Mantenha `ipv6 unicast-routing` habilitado, conforme a Tarefa 4.
+
+Configure as rotas para as redes remotas necessárias aos testes. As rotas para redes diretamente conectadas já constam na tabela do roteador. Salve as configurações após concluir.
+
+### 7.3. Testes de Comunicação entre Redes
+
+1. **Conectividade total:** a partir de um PC de Pato Branco, execute `ping` para **todas as outras interfaces endereçadas da topologia cabeada** (roteadores, switches, servidores e PCs), em **IPv4 e IPv6**.
+2. **Escopo IPv6:** nos testes entre redes, utilize os endereços **GUA**. Os endereços link-local serão testados somente no respectivo enlace.
+3. **Resolução e acesso remoto:** execute `nslookup www.fb.utfpr.tec.br` e acesse `http://www.fb.utfpr.tec.br` no navegador. Confira também os serviços remotos do outro campus.
+4. **Roteamento assimétrico:** confira se as rotas configuradas correspondem às tabelas da seção 7.1 e ao fluxo exigido no enunciado.
+
+---
+
+## 🔒 Tarefa 8: Configuração de Segurança Básica
+
+Implemente e valide medidas de segurança e acesso seguro, via CLI, em **TODOS os roteadores modelo 2811**. Esta tarefa integra a **Entrega 3**. A segurança dos roteadores sem fio utilizados como APs será configurada na **Tarefa 9 / Entrega 4**. 
+
+### 8.1. Implementação de Medidas de Segurança
 
 Implemente as seguintes configurações em **TODOS os roteadores modelo 2811**:
 
@@ -360,7 +395,7 @@ Implemente as seguintes configurações em **TODOS os roteadores modelo 2811**:
     - Encerrar as conexões via console e VTY após **5 minutos** de inatividade.
     - Implementar a proteção contra ataques de força bruta: bloquear tentativas de login por **120 segundos** se houver **3 tentativas** de login com falha dentro de **60 segundos**.
 
-### 7.2. Acesso Remoto Seguro (SSH)
+### 8.2. Acesso Remoto Seguro (SSH)
 
 Configure o acesso remoto seguro (SSH) nas linhas VTY 0 15, exigindo autenticação via usuário local:
 
@@ -369,42 +404,22 @@ Configure o acesso remoto seguro (SSH) nas linhas VTY 0 15, exigindo autenticaç
 3.  **Geração de Chave:** Gerar a chave RSA para o SSH com tamanho de **1024 bits**.
 4.  **Configuração VTY:** Limitar o acesso nas linhas VTY 0 15 apenas ao protocolo **SSH** e com autenticação local.
 
-
----
-
-## ✅ Tarefa 8: Testes e Validação da Rede Cabeada
-
-Esta tarefa comprova o funcionamento da **topologia cabeada da Figura 1**, correspondente à **Entrega 3**, em três estágios: serviços e conectividade local, comunicação entre redes e segurança básica. Os testes da expansão Wi-Fi serão realizados na Tarefa 9. Os endereços reservados para os futuros APs permanecem no planejamento.
-
-### 8.1. Estágio 1: Serviços e Conectividade Local
-
-Em cada LAN:
-
-1. **DHCP/SLAAC:** execute `ipconfig /all` nos PCs e confira IPv4, máscara, IPv6 GUA, gateways e DNS recebidos automaticamente.
-2. **Conectividade local:** execute `ping`, em IPv4 e IPv6, dos PCs para o gateway, a SVI do switch e os servidores locais. Teste também a comunicação entre os dois PCs.
-3. **DNS e HTTP:** confirme a resolução dos nomes e acesse, no navegador, a página do Servidor Web do campus, verificando a identificação personalizada.
-
-### 8.2. Estágio 2: Comunicação entre Redes
-
-1. **Conectividade total:** a partir de um PC de Pato Branco, execute `ping` para **todas as outras interfaces endereçadas da topologia cabeada** (roteadores, switches, servidores e PCs), em **IPv4 e IPv6**.
-2. **Escopo IPv6:** nos testes entre redes, utilize os endereços **GUA**. Os endereços link-local serão testados somente no respectivo enlace.
-3. **Resolução e acesso remoto:** execute `nslookup www.fb.utfpr.tec.br` e acesse `http://www.fb.utfpr.tec.br` no navegador. Confira também os serviços remotos do outro campus.
-4. **Roteamento assimétrico:** confira se as rotas configuradas correspondem às tabelas da Tarefa 3 e ao fluxo exigido no enunciado.
-
-### 8.3. Estágio 3: Segurança Básica
+### 8.3. Testes de Segurança Básica
 
 1. **Proteção contra força bruta:** a partir de um PC, provoque **três falhas de autenticação no acesso SSH**, dentro de **60 segundos**, e confirme o bloqueio por **120 segundos**. Verifique também o estado do roteador com `show login`.
 2. **SSH:** conecte-se a um roteador remoto com `ssh -l usuario ip_do_roteador`, confira a autenticação local e o acesso bem-sucedido. Verifique que as linhas VTY aceitam somente SSH.
 3. **Inatividade:** deixe uma sessão de console ou SSH sem atividade por mais de **5 minutos** e confirme seu encerramento.
-4. **Configuração:** confira o banner MOTD, o comprimento mínimo e a proteção das senhas, conforme a Tarefa 7.
+4. **Configuração:** confira o banner MOTD, o comprimento mínimo e a proteção das senhas, conforme a seção 8.1.
+
+Salve as configurações após concluir os ajustes e os testes.
 
 ---
 
 <a id="tarefa-9"></a>
 
-## 📶 Tarefa 9: Expansão da Rede com Acesso Wi-Fi (1,0 Ponto)
+## 📶 Tarefa 9: Expansão da Rede com Acesso Wi-Fi (2,0 Pontos)
 
-Esta tarefa será implementada **após a aula sobre Wi-Fi** e compõe a **Entrega 4 — Final**. Parta da topologia cabeada funcional da Entrega 3 e acrescente **1 roteador sem fio atuando como AP e 1 notebook em cada LAN**, conforme a Figura 2.
+Esta tarefa será implementada **após a aula sobre Wi-Fi, prevista para 10/11/2026** e compõe a **Entrega 4 — Final**. Parta da topologia cabeada funcional da Entrega 3 e acrescente **1 roteador sem fio atuando como AP e 1 notebook em cada LAN**, conforme a Figura 2.
 
 <a id="figura2"></a>
 
@@ -437,7 +452,7 @@ O endereço de gerenciamento do AP servirá para administrar o equipamento. O **
 ### 9.3. Configuração dos Notebooks
 
 1. Associe cada notebook ao SSID do respectivo campus, utilizando a senha configurada.
-2. Configure **DHCP** para IPv4 e **Auto Config** para IPv6, utilizando **SLAAC/DHCPv6 stateless**, conforme o procedimento da seção 6.5.
+2. Configure **DHCP** para IPv4 e **Auto Config** para IPv6, utilizando **SLAAC/DHCPv6 stateless**, conforme o procedimento da seção 5.5.
 3. Execute `ipconfig /all` e confirme que o notebook recebeu endereços pertencentes às **mesmas sub-redes IPv4 e IPv6 dos PCs cabeados**, com o gateway e os servidores DNS do campus.
 
 ### 9.4. Testes de Funcionamento do Wi-Fi
@@ -471,21 +486,59 @@ Confira se o endereçamento aplicado nos APs corresponde ao planejamento da **Ta
 | :--- | :--- | ---: |
 | **1** | Tarefa 1 — Sub-redes IPv4 e IPv6 | **0,50** |
 | **1** | Tarefa 2 — Endereçamento dos dispositivos, incluindo os futuros APs | **0,50** |
-| **2** | Tarefa 3 — Tabelas de roteamento IPv4 e IPv6 | **0,50** |
-| **3** | Serviços DHCP/DNS nas três LANs | **1,00** |
-| **3** | Servidores Web | **0,80** |
-| **3** | Conectividade local cabeada em IPv4 e IPv6 | **0,70** |
-| **3** | Conectividade entre redes em IPv4 | **2,00** |
-| **3** | Conectividade entre redes em IPv6 | **2,00** |
-| **3** | Segurança básica e acesso SSH | **1,00** |
-| **4** | Tarefa 9 — Expansão com Wi-Fi | **1,00** |
+| **2** | Tarefas 4 e 6 — Configuração básica e endereçamento dos switches e roteadores, com conectividade local em IPv4 e IPv6 | **1,50** |
+| **2** | Tarefa 5 — Configuração dos servidores DHCP/DNS e dos PCs: DHCPv4, SLAAC/DHCPv6 stateless e DNS nas três LANs | **1,50** |
+| **2** | Tarefa 5 — Servidores Web: endereçamento, HTTP e páginas personalizadas | **0,50** |
+| **3** | Tarefa 7.1 — Tabelas de roteamento IPv4 e IPv6 | **0,50** |
+| **3** | Tarefa 7 — Roteamento e conectividade entre redes em IPv4 | **1,00** |
+| **3** | Tarefa 7 — Roteamento e conectividade entre redes em IPv6 | **1,00** |
+| **3** | Tarefa 8 — Segurança básica e acesso SSH | **1,00** |
+| **4** | Tarefa 9 — Expansão com Wi-Fi: configuração, documentação e testes | **2,00** |
 | | **Total** | **10,00** |
 
-A **Entrega 3 vale 7,50 pontos**: serviços e conectividade local (2,50), conectividade entre redes (4,00) e segurança básica (1,00).
+A **Entrega 2 vale 3,50 pontos**: configuração básica e endereçamento dos intermediários, com conectividade local em IPv4 e IPv6 (1,50); configuração dos servidores DHCP/DNS e dos PCs, com DHCPv4, SLAAC/DHCPv6 stateless e DNS (1,50); e servidores Web (0,50). A topologia da Tarefa 3 será utilizada para implementar e testar esses requisitos.
 
-Para os dois critérios de **conectividade entre redes da Entrega 3**, será mantida a regra **TUDO-OU-NADA por protocolo**: a pontuação de 2,00 pontos em IPv4 e de 2,00 pontos em IPv6 será atribuída somente quando todas as interfaces avaliadas da **topologia cabeada da Figura 1** estiverem acessíveis no respectivo protocolo. Os endereços reservados dos futuros APs pertencem ao planejamento inicial; os testes dos APs e notebooks integram a Entrega 4.
+A **Entrega 3 vale 3,50 pontos**: tabelas de roteamento (0,50), roteamento e conectividade entre redes em IPv4 (1,00) e IPv6 (1,00), e segurança básica (1,00). Os serviços e a conectividade local deverão continuar funcionando nas entregas seguintes.
+
+Para os dois critérios de **roteamento e conectividade entre redes da Entrega 3**, será mantida a regra **TUDO-OU-NADA por protocolo**: a pontuação de 1,00 ponto em IPv4 e de 1,00 ponto em IPv6 será atribuída somente quando todas as interfaces avaliadas da **topologia cabeada da Figura 1** estiverem acessíveis no respectivo protocolo. Os endereços reservados dos futuros APs pertencem ao planejamento inicial; os testes dos APs e notebooks integram a Entrega 4.
 
 Os critérios que envolvem as LANs consideram o **conjunto das três LANs**. Os valores apresentados correspondem à pontuação total do critério.
+
+### Detalhamento da Entrega 2 — Funcionamento das LANs
+
+#### Configuração Básica e Conectividade Local — Tarefas 4 e 6
+
+| Critério | Valor |
+| :--- | ---: |
+| Hostnames dos switches e roteadores e descrições das SVIs e interfaces utilizadas | 0,20 |
+| Endereços IPv4 e máscaras nas interfaces dos roteadores e nas SVIs dos switches, conforme a Tarefa 2 | 0,30 |
+| Pilha dupla nos switches e endereços IPv6/prefixos e link-local nos intermediários, conforme a Tarefa 2 | 0,30 |
+| Interfaces ativadas, taxa de clock nas interfaces DCE e configurações salvas | 0,20 |
+| Gateway IPv4 dos switches, aprendizado do gateway IPv6 por RA e roteamento IPv6 habilitado nos roteadores | 0,20 |
+| Conectividade local em IPv4 e IPv6 entre os PCs e com o gateway, a SVI e os servidores, conforme a Tarefa 6 | 0,30 |
+| **Subtotal** | **1,50** |
+
+#### Servidores DHCP/DNS e PCs — Tarefa 5
+
+| Critério | Valor |
+| :--- | ---: |
+| Endereçamento estático dos servidores DHCP/DNS: IPv4/máscara, IPv6/prefixo, gateways e DNS | 0,30 |
+| DHCPv4: pools, faixa de endereços, máscara, gateway e DNS, respeitando as reservas da infraestrutura | 0,35 |
+| SLAAC/DHCPv6 stateless: DNS IPv6 no serviço DHCPv6 e anúncio correspondente nos roteadores das LANs | 0,35 |
+| DNS: registros A e AAAA dos três servidores Web em cada servidor DNS e resolução dos nomes conforme a Tarefa 6 | 0,30 |
+| PCs configurados para endereçamento automático, com endereços, máscaras/prefixos, gateways e DNS corretos | 0,20 |
+| **Subtotal** | **1,50** |
+
+#### Servidores Web — Tarefa 5
+
+| Critério | Valor |
+| :--- | ---: |
+| Endereçamento estático dos servidores Web: IPv4/máscara, IPv6/prefixo, gateways e DNS | 0,20 |
+| Serviço HTTP ativo e acessível pelos PCs da própria LAN | 0,15 |
+| Página fornecida personalizada com nome, RA e campus, exibida corretamente no navegador | 0,15 |
+| **Subtotal** | **0,50** |
+
+**Total da Entrega 2: 3,50 pontos.**
 
 ### Detalhamento da Segurança Básica — Entrega 3
 
@@ -497,35 +550,38 @@ Os critérios que envolvem as LANs consideram o **conjunto das três LANs**. Os 
 | Proteção do console | 0,10 |
 | Encerramento por inatividade | 0,10 |
 | Proteção contra força bruta | 0,10 |
-| Acesso SSH conforme a Tarefa 7 | 0,40 |
+| Acesso SSH conforme a Tarefa 8 | 0,40 |
 | **Subtotal** | **1,00** |
 
 ### Detalhamento da Expansão Wi-Fi — Entrega 4
 
 | Critério | Valor |
 | :--- | ---: |
-| APs e notebooks incluídos e identificados; cabo do switch conectado à **Gi1 do AP** | 0,20 |
-| Endereços de gerenciamento conforme o planejamento e DHCP do roteador sem fio desativado | 0,20 |
-| SSID e WPA2-PSK/AES corretos; associação com senha válida e falha com senha incorreta | 0,20 |
-| Notebooks com endereçamento automático, nas mesmas sub-redes e com gateway e DNS do campus | 0,20 |
-| Conectividade e serviços locais/remotos em IPv4/IPv6, com documentação Wi-Fi atualizada | 0,20 |
-| **Subtotal** | **1,00** |
+| APs e notebooks incluídos e identificados; cabo do switch conectado à **Gi1 do AP** | 0,40 |
+| Endereços de gerenciamento conforme o planejamento e DHCP do roteador sem fio desativado | 0,40 |
+| SSID e WPA2-PSK/AES corretos; associação com senha válida e falha com senha incorreta | 0,40 |
+| Notebooks com endereçamento automático, nas mesmas sub-redes e com gateway e DNS do campus | 0,40 |
+| Conectividade e serviços locais/remotos em IPv4/IPv6, com documentação Wi-Fi atualizada | 0,40 |
+| **Subtotal** | **2,00** |
 
-Utilize a [checklist de avaliação](checklist-avaliacao.md) para conferir os critérios antes de cada entrega. Ela também será utilizada para registrar a pontuação durante a correção.
+Antes de cada entrega, confira os critérios desta seção e execute os testes das tarefas correspondentes. A pontuação de cada etapa será registrada conforme os valores acima.
+
+---
 
 ## Disponibilização e Entregas
 
-A atividade é **individual** e será disponibilizada em **15/10/2026 (quinta-feira)**. Todas as entregas deverão ser realizadas pelo **Moodle**.
+A atividade é **individual** e foi disponibilizada em **15/10/2026 (quinta-feira)**. Todas as entregas deverão ser realizadas pelo **Moodle**.
 
 | Etapa | Prazo | Conteúdo | Valor |
 | :--- | :--- | :--- | ---: |
-| Disponibilização | **15/10/2026 (quinta-feira)** | Enunciado, topologias, modelo de documentação e checklist. | — |
+| Disponibilização | **15/10/2026 (quinta-feira)** | Enunciado, topologias e modelo de documentação. | — |
 | **Entrega 1** | **20/10/2026 (terça-feira)** | Tarefas 1 e 2: sub-redes e endereçamento, incluindo os futuros APs. | **1,00** |
-| **Entrega 2** | **27/10/2026 (terça-feira)** | Correção das Tarefas 1 e 2 e documentação da Tarefa 3. | **0,50** |
-| **Entrega 3 — Rede cabeada** | **10/11/2026 (terça-feira)** | Topologia da Figura 1 implementada, serviços e segurança funcionando. | **7,50** |
-| **Entrega 4 — Final, com Wi-Fi** | **A definir após a aula sobre Wi-Fi** | Tarefa 9: expansão com APs e notebooks e complementação da documentação. | **1,00** |
+| **Entrega 2 — Funcionamento das LANs** | **27/10/2026 (terça-feira), no início da aula** | Tarefas 1 e 2 corrigidas; Tarefas 3 a 6: topologia cabeada, configuração básica e endereçamento, serviços e conectividade dentro de cada LAN. | **3,50** |
+| **Entrega 3 — Rede cabeada completa** | **10/11/2026 (terça-feira)** | Tarefas 7 e 8: tabelas e configuração de roteamento estático IPv4/IPv6, comunicação entre redes e segurança básica, mantendo os serviços locais funcionando. | **3,50** |
+| **Entrega 4 — Final, com Wi-Fi** | **A definir após a aula sobre Wi-Fi** | Tarefa 9: expansão com APs e notebooks e complementação da documentação. | **2,00** |
+| | | **Total** | **10,00** |
 
-O prazo da **Entrega 4** será informado pelo professor no Moodle.
+O roteamento estático será abordado na aula de **27/10** e a segurança básica na aula de **29/10**. Não haverá aulas da disciplina na semana de **02 a 06/11**: dia 02 é feriado e de 03 a 06 ocorrerá a semana acadêmica. Esse intervalo poderá ser utilizado para concluir a rede cabeada. A aula sobre Wi-Fi está prevista para **10/11**, e o prazo da **Entrega 4** será informado pelo professor no Moodle após essa aula.
 
 ### Entrega 1 — Sub-redes e Endereçamento
 
@@ -539,38 +595,43 @@ Entregar **`trabalho-documentacao-v1-NomeAluno.md`**, seguindo o [modelo de docu
 
 A seção de parâmetros Wi-Fi da Tarefa 9 no modelo será preenchida na **Entrega 4**.
 
-**Prazo: 20/10/2026.** Após o encerramento do prazo, será disponibilizado o gabarito correspondente para conferência e correções.
+**Prazo: 20/10/2026. Valor desta entrega: 1,00 ponto.** O gabarito das Tarefas 1 e 2 foi disponibilizado para conferência e correções nas próximas versões da documentação.
 
-### Entrega 2 — Correções e Roteamento
+### Entrega 2 — Configuração Básica, Serviços e Funcionamento das LANs
 
-Entregar **`trabalho-documentacao-v2-NomeAluno.md`**, seguindo o mesmo modelo, contendo:
+Entregar **`trabalho-entrega2-NomeAluno.zip`**, contendo:
 
-- **Tarefas 1 e 2 corrigidas**, quando necessário, incluindo o planejamento dos APs.
-- **Tarefa 3:** tabelas de roteamento estático IPv4 e IPv6 de todos os roteadores 2811, respeitando o fluxo assimétrico exigido.
+- **`trabalho-documentacao-v2-NomeAluno.md`**: Tarefas 1 e 2 corrigidas conforme o gabarito e coerentes com a implementação, incluindo os endereços reservados para os futuros APs.
+- **Scripts dos roteadores 2811 e switches**: um arquivo `.txt` por equipamento, nomeado com o respectivo hostname, por exemplo `r-pb-nnn.txt` e `sw-pb-nnn.txt`, contendo os comandos de configuração utilizados nesta etapa.
+- **`trabalho-topologia-lans-NomeAluno.pkt`**: topologia da **Figura 1**, com a montagem da **Tarefa 3**, a configuração básica e o endereçamento de interfaces da **Tarefa 4**, os servidores e PCs da **Tarefa 5** e os testes locais da **Tarefa 6** concluídos. Cada LAN deverá funcionar internamente em IPv4 e IPv6, com DHCP, DNS e HTTP configurados.
 
-**Prazo: 27/10/2026.** Após o encerramento do prazo, será disponibilizado o gabarito correspondente para conferência e correções.
+As tabelas de roteamento, as rotas estáticas entre redes e a segurança básica serão entregues na **Entrega 3**.
 
-### Entrega 3 — Implementação da Rede Cabeada
+**Prazo: 27/10/2026, no início da aula. Valor desta entrega: 3,50 pontos.**
+
+### Entrega 3 — Roteamento, Segurança e Rede Cabeada Completa
 
 Entregar **`trabalho-entrega3-NomeAluno.zip`**, contendo:
 
-- **`trabalho-documentacao-v3-NomeAluno.md`**: Tarefas 1, 2 e 3 corrigidas e coerentes com a implementação; manter registrados e reservados os endereços planejados dos futuros APs.
-- **Scripts dos roteadores 2811 e switches**: um arquivo `.txt` por equipamento, nomeado com o respectivo nome, por exemplo `r-pb-nnn.txt` e `sw-pb-nnn.txt`.
-- **`trabalho-topologia-cabeada-NomeAluno.pkt`**: topologia da **Figura 1**, com as Tarefas 4 a 7 implementadas e os testes da Tarefa 8 realizados, com operação local e entre campi em IPv4 e IPv6.
+- **`trabalho-documentacao-v3-NomeAluno.md`**: Tarefas 1 e 2 corrigidas e **tabelas de roteamento IPv4 e IPv6 da Tarefa 7.1**, para todos os roteadores 2811, coerentes com a implementação. Mantenha registrados e reservados os endereços planejados dos futuros APs.
+- **Scripts dos roteadores 2811 e switches**: um arquivo `.txt` por equipamento, com a configuração atualizada, incluindo o roteamento e as medidas de segurança exigidas.
+- **`trabalho-topologia-cabeada-NomeAluno.pkt`**: evolução da topologia da Entrega 2, conforme a **Figura 1**, com as **Tarefas 3 a 8 concluídas**, incluindo os testes de comunicação entre redes e de segurança. A rede cabeada deverá funcionar integralmente em IPv4 e IPv6, com os serviços locais e remotos acessíveis.
 
-**Prazo: 10/11/2026. Valor desta entrega: 7,50 pontos.**
+**Prazo: 10/11/2026. Valor desta entrega: 3,50 pontos.**
 
 ### Entrega 4 — Entrega Final com Wi-Fi
 
 Após a aula sobre Wi-Fi, entregar **`trabalho-final-NomeAluno.zip`**, contendo:
 
-- **`trabalho-documentacao-final-NomeAluno.md`**: documentação completa e atualizada, com as Tarefas 1, 2 e 3 e a seção Wi-Fi da **Tarefa 9**, incluindo SSIDs, senhas, segurança, conexões e testes.
+- **`trabalho-documentacao-final-NomeAluno.md`**: documentação completa e atualizada, com as Tarefas 1 e 2, as tabelas de roteamento da **Tarefa 7.1** e a seção Wi-Fi da **Tarefa 9**, incluindo SSIDs, senhas, segurança, conexões e testes.
 - **Scripts dos roteadores 2811 e switches**, correspondentes à versão final do projeto.
 - **`trabalho-topologia-final-NomeAluno.pkt`**: versão expandida da topologia da Entrega 3, conforme a **Figura 2**, com os três APs e notebooks configurados, serviços e conectividade IPv4/IPv6 funcionando.
 
-**Prazo: a definir após a aula sobre Wi-Fi, com divulgação no Moodle. Valor desta entrega: 1,00 ponto.**
+**Prazo: a definir após a aula sobre Wi-Fi, com divulgação no Moodle. Valor desta entrega: 2,00 pontos.**
 
 **Não serão aceitas entregas após os respectivos prazos.**
+
+---
 
 ## Teste de autoria
 
