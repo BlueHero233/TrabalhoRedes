@@ -53,7 +53,7 @@ Ao final, o trabalho deverá conter a documentação do projeto e a topologia co
 
 -----
 
-## 📑 Tarefa 1: Projetar e Documentar as Sub-redes (0,5 Ponto)
+## 📑 Tarefa 1: Projetar e Documentar as Sub-redes
 
 Utilize o bloco de endereços **IPv4 200.136.N.0/24** e **IPv6 2001:DB8:CAFE:NN00::/56** (em que **N** e **NN** são os dois últimos dígitos do seu RA) para criar as sub-redes, de acordo com as seguintes especificações:
 
@@ -81,7 +81,7 @@ Utilize o bloco de endereços **IPv4 200.136.N.0/24** e **IPv6 2001:DB8:CAFE:NN0
 
 <a id="tarefa-2"></a>
 
-## 🖥️ Tarefa 2: Plano de Endereçamento Lógico (Documentação) (0,5 Ponto)
+## 🖥️ Tarefa 2: Plano de Endereçamento Lógico (Documentação)
 
 Esta tarefa exige a documentação completa do esquema de endereçamento lógico, definindo os endereços IPv4 e IPv6 (Global Unicast Address-GUA e Link-Local) para a infraestrutura e o uso de endereçamento automático para os clientes cabeados (PCs) e sem fio (notebooks). O endereço de gerenciamento do AP também deverá ser documentado.
 
@@ -144,7 +144,7 @@ Ao documentar o endereçamento dos PCs, Notebooks, Servidores e Switches, o **De
 
 -----
 
-## 💻 Tarefa 3: Criação da Topologia Cabeada no Packet Tracer (0,0 Ponto)
+## 💻 Tarefa 3: Criação da Topologia Cabeada no Packet Tracer
 
 Crie a topologia cabeada conforme a [Figura 1](#figura1). Ela será utilizada na **Entrega 2** para o funcionamento interno das LANs e ampliada nas etapas seguintes:
 
@@ -335,7 +335,7 @@ Confirme o funcionamento em Pato Branco, Francisco Beltrão e Dois Vizinhos. Nes
 
 Após validar as LANs localmente, planeje e implemente o roteamento estático IPv4 e IPv6. A documentação, a configuração e os testes desta tarefa integram a **Entrega 3**.
 
-### 7.1. Planejamento e Documentação das Tabelas de Roteamento (0,5 Ponto)
+### 7.1. Planejamento e Documentação das Tabelas de Roteamento
 
 Defina e documente as rotas estáticas necessárias em **TODOS** os roteadores modelo 2811 para garantir a conectividade entre as LANs e o acesso às interfaces avaliadas nos testes entre redes. O fluxo de pacotes entre as LANs deve percorrer o anel no **sentido horário**, produzindo caminhos distintos de ida e volta. Por exemplo:
 
@@ -417,7 +417,7 @@ Salve as configurações após concluir os ajustes e os testes.
 
 <a id="tarefa-9"></a>
 
-## 📶 Tarefa 9: Expansão da Rede com Acesso Wi-Fi (2,0 Pontos)
+## 📶 Tarefa 9: Expansão da Rede com Acesso Wi-Fi
 
 Esta tarefa será implementada **após a aula sobre Wi-Fi, prevista para 10/11/2026** e compõe a **Entrega 4 — Final**. Parta da topologia cabeada funcional da Entrega 3 e acrescente **1 roteador sem fio atuando como AP e 1 notebook em cada LAN**, conforme a Figura 2.
 
