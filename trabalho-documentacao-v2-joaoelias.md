@@ -211,20 +211,20 @@ Limitações do modelo e parâmetros efetivamente configurados: **(preencher)**.
 
 ### Entrega 1 — Tarefas 1 e 2
 
-- [ ] Nome, RA e curso preenchidos.
-- [ ] Tarefa 1: sub-redes IPv4/IPv6 e reservas para expansão documentadas.
-- [ ] Tarefa 2: roteadores, switches e servidores com endereçamento completo.
+- [x] Nome, RA e curso preenchidos.
+- [x] Tarefa 1: sub-redes IPv4/IPv6 e reservas para expansão documentadas.
+- [x] Tarefa 2: roteadores, switches e servidores com endereçamento completo.
 - [ ] Futuros APs com IPv4, máscara e gateway já calculados e registrados.
-- [ ] IPv6/prefixo e gateway dos futuros APs já calculados e registrados.
-- [ ] DHCPv4 e SLAAC/DHCPv6 stateless indicados para PCs e futuros notebooks.
+- [x] IPv6/prefixo e gateway dos futuros APs já calculados e registrados.
+- [x] DHCPv4 e SLAAC/DHCPv6 stateless indicados para PCs e futuros notebooks.
 - [ ] Documento salvo como `trabalho-documentacao-v1-NomeAluno.md`.
 
 ### Entrega 2 — Correções e Tarefa 3
 
-- [ ] Tarefas 1 e 2 revisadas e corrigidas, quando necessário, incluindo os futuros APs.
-- [ ] Tarefa 3: tabelas IPv4/IPv6 completas para todos os roteadores 2811.
-- [ ] Fluxo assimétrico conforme o enunciado.
-- [ ] Documento salvo como `trabalho-documentacao-v2-NomeAluno.md`.
+- [x] Tarefas 1 e 2 revisadas e corrigidas, quando necessário, incluindo os futuros APs.
+- [x] Tarefa 3: tabelas IPv4/IPv6 completas para todos os roteadores 2811.
+- [x] Fluxo assimétrico conforme o enunciado.
+- [x] Documento salvo como `trabalho-documentacao-v2-NomeAluno.md`.
 
 ### Entrega 3 — Rede Cabeada
 
