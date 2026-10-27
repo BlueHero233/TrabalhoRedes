@@ -46,9 +46,9 @@ A documentação de SSID, senha e demais parâmetros Wi-Fi será preenchida na *
 |      **SRV-PB-DNS-DHCP**      |    NIC    |      200.136.6.3      |     255.255.255.192     |      200.136.6.1      |   2001:DB8:CAFE:0600::3/64   |   EUI-64   |  *FE80::1*   |
 |        **SRV-PB-WEB**         |    NIC    |      200.136.6.4      |     255.255.255.192     |      200.136.6.1      |   2001:DB8:CAFE:0600::4/64   |   EUI-64   |  *FE80::1*   |
 |      **SRV-FB-DNS-DHCP**      |    NIC    |     200.136.6.67      |     255.255.255.224     |     200.136.6.65      |   2001:DB8:CAFE:0601::3/64   |   EUI-64   |  *FE80::1*   |
-|        **SRV-FB-WEB**         |    NIC    |     200.136.6.68      |     255.255.255.244     |     200.136.6.65      |   2001:DB8:CAFE:0601::4/64   |   EUI-64   |  *FE80::1*   |
-|      **SRV-DV-DNS-DHCP**      |    NIC    |     200.136.6.99      |     255.255.255.244     |     200.136.6.97      |   2001:DB8:CAFE:0602::3/64   |   EUI-64   |  *FE80::1*   |
-|        **SRV-DV-WEB**         |    NIC    |     200.136.6.100     |     255.255.255.244     |     200.136.6.97      |   2001:DB8:CAFE:0602::4/64   |   EUI-64   |  *FE80::1*   |
+|        **SRV-FB-WEB**         |    NIC    |     200.136.6.68      |     255.255.255.224     |     200.136.6.65      |   2001:DB8:CAFE:0601::4/64   |   EUI-64   |  *FE80::1*   |
+|      **SRV-DV-DNS-DHCP**      |    NIC    |     200.136.6.99      |     255.255.255.224     |     200.136.6.97      |   2001:DB8:CAFE:0602::3/64   |   EUI-64   |  *FE80::1*   |
+|        **SRV-DV-WEB**         |    NIC    |     200.136.6.100     |     255.255.255.224     |     200.136.6.97      |   2001:DB8:CAFE:0602::4/64   |   EUI-64   |  *FE80::1*   |
 |  **AP-Pato Branco — futuro**  | LAN (Gi1) | 200.136.6.(preencher) | 255.255.255.(preencher) | 200.136.6.(preencher) |   (preencher GUA/prefixo)    | Automático |   FE80::1    |
 | **AP-Fco. Beltrão — futuro**  | LAN (Gi1) | 200.136.6.(preencher) | 255.255.255.(preencher) | 200.136.6.(preencher) |   (preencher GUA/prefixo)    | Automático |   FE80::1    |
 | **AP-Dois Vizinhos — futuro** | LAN (Gi1) | 200.136.6.(preencher) | 255.255.255.(preencher) | 200.136.6.(preencher) |   (preencher GUA/prefixo)    | Automático |   FE80::1    |
