@@ -280,11 +280,11 @@ Limitações do modelo e parâmetros efetivamente configurados: **(preencher)**.
 
 ### Entrega 3 — Rede Cabeada
 
-- [ ] Documentação das Tarefas 1, 2 e 3 corrigida e coerente com a implementação.
-- [ ] Endereços dos futuros APs mantidos no planejamento e reservados.
-- [ ] Topologia cabeada da Figura 1 implementada e testes da Tarefa 8 realizados.
-- [ ] Scripts dos roteadores e switches incluídos, com um `.txt` por equipamento.
-- [ ] Arquivo `trabalho-entrega3-NomeAluno.zip` com documentação v3, scripts e topologia cabeada `.pkt`.
+- [x] Documentação das Tarefas 1, 2 e 3 corrigida e coerente com a implementação.
+- [x] Endereços dos futuros APs mantidos no planejamento e reservados.
+- [x] Topologia cabeada da Figura 1 implementada e testes da Tarefa 8 realizados.
+- [x] Scripts dos roteadores e switches incluídos, com um `.txt` por equipamento.
+- [x] Arquivo `trabalho-entrega3-NomeAluno.zip` com documentação v3, scripts e topologia cabeada `.pkt`.
 
 ### Entrega 4 — Final com Wi-Fi
 
