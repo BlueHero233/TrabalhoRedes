@@ -1,0 +1,17 @@
+enable
+configure terminal
+hostname r-vit-je
+ipv6 unicast-routing
+interface Serial0/0/0
+ description Enlace Vitorino Francisco Beltrao
+ ip address 200.136.6.229 255.255.255.252
+ ipv6 address 2001:DB8:CAFE:06FF::1:1/112
+ clock rate 56000
+ no shutdown
+interface Serial0/0/1
+ description Enlace Vitorino Pato Branco
+ ip address 200.136.6.226 255.255.255.252
+ ipv6 address 2001:DB8:CAFE:06FF::0:2/112
+ no shutdown
+end
+write

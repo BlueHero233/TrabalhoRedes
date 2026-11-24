@@ -1,0 +1,22 @@
+enable
+configure terminal
+hostname r-ita-je
+ipv6 unicast-routing
+interface Serial0/0/0
+ description Enlace Itapejara Pato Branco
+ ip address 200.136.6.237 255.255.255.252
+ ipv6 address 2001:DB8:CAFE:06FF::3:1/112
+ clock rate 56000
+ no shutdown
+interface Serial0/0/1
+ description Enlace Itapejara Francisco Beltrao
+ ip address 200.136.6.234 255.255.255.252
+ ipv6 address 2001:DB8:CAFE:06FF::2:2/112
+ no shutdown
+interface FastEthernet0/1
+ description Conexao Itapejara Dois Vizinhos
+ ip address 200.136.6.241 255.255.255.252
+ ipv6 address 2001:DB8:CAFE:06FF::4:1/112
+ no shutdown
+end
+write

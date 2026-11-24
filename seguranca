@@ -1,0 +1,28 @@
+enable
+configure terminal
+security passwords min-lenght 10
+enable secret @dmin-joao
+service password-encryption
+login block-for 120 attempts 3 within 60
+line vty 0 15
+login local
+transport input ssh
+exec-timeout 5
+
+exit
+ip domain-name joao.mendes.com.br
+username joao secret ssh@Network1ng
+crypto key generate rsa
+1024
+banner motd #
+--------------------------------------------------------------------------
+|                                                                        |
+|                          Roteador Pato Branco                           |
+|                                                                        |
+|               ATENÇÃO Acesso Restrito a pessoas autorizadas!             |
+|                                                                        |
+|                   Administrador: JOAO ELIAS GOMES MENDES                        |
+|                   (joaomendes.2002@alunos.utfpr.edu.br)                         |
+|                                                                        |
+--------------------------------------------------------------------------
+#

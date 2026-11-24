@@ -1,0 +1,11 @@
+enable
+configure terminal
+hostname sw-dv-je
+sdm prefer dual-ipv4-and-ipv6 default
+ip default-gateway 200.136.6.97
+interface vlan1
+ description Switch Dois Vizinhos
+ ip address 200.136.6.98 255.255.255.224
+ no shutdown
+end
+write
