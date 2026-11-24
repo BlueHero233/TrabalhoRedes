@@ -5,6 +5,7 @@ sdm prefer dual-ipv4-and-ipv6 default
 ip default-gateway 200.136.6.1
 interface vlan1
 ip address 200.136.6.2 255.255.255.192
+ipv6 address 2001:db8:cafe:600::2/64
 no shutdown
 description Switch Pato Branco
 end
