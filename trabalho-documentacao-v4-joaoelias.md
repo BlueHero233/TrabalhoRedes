@@ -52,9 +52,9 @@ A documentação de SSID, senha e demais parâmetros Wi-Fi será preenchida na *
 |     **AP-Pato Branco**     | LAN (Gi1) |  200.136.6.5  | 255.255.255.192 |  200.136.6.1   |  2001:DB8:CAFE:0600::5/64   | Automático |  *FE80::1*   |
 |    **AP-Fco. Beltrão**     | LAN (Gi1) | 200.136.6.69  | 255.255.255.224 |  200.136.6.65  |  2001:DB8:CAFE:0601::5/64   | Automático |  *FE80::1*   |
 |    **AP-Dois Vizinhos**    | LAN (Gi1) | 200.136.6.101 | 255.255.255.224 |  200.136.6.97  |  2001:DB8:CAFE:0602::5/64   | Automático |  *FE80::1*   |
-|   **Switch-Pato Branco**   |    SVI    |  200.136.6.2  | 255.255.255.192 |  200.136.6.1   |              -              |   EUI-64   |  *FE80::1*   |
-|  **Switch-Fco. Beltrão**   |    SVI    | 200.136.6.66  | 255.255.255.224 |  200.136.6.65  |              -              |   EUI-64   |  *FE80::1*   |
-|  **Switch-Dois Vizinhos**  |    SVI    | 200.136.6.98  | 255.255.255.224 |  200.136.6.97  |              -              |   EUI-64   |  *FE80::1*   |
+|   **Switch-Pato Branco**   |    SVI    |  200.136.6.2  | 255.255.255.192 |  200.136.6.1   |  2001:DB8:CAFE:0600::2/64   |   EUI-64   |  *FE80::1*   |
+|  **Switch-Fco. Beltrão**   |    SVI    | 200.136.6.66  | 255.255.255.224 |  200.136.6.65  |  2001:DB8:CAFE:0601::2/64   |   EUI-64   |  *FE80::1*   |
+|  **Switch-Dois Vizinhos**  |    SVI    | 200.136.6.98  | 255.255.255.224 |  200.136.6.97  |  2001:DB8:CAFE:0602::2/64   |   EUI-64   |  *FE80::1*   |
 |  **Roteador-Pato Branco**  |   Fa0/0   |  200.136.6.1  | 255.255.255.192 |     **-**      |  2001:DB8:CAFE:0601::1/64   | *FE80::1*  |    **-**     |
 |  **Roteador-Pato Branco**  |  Se0/0/0  | 200.136.6.225 | 255.255.255.252 |     **-**      | 2001:DB8:CAFE:06FF::0:1/112 |   EUI-64   |    **-**     |
 |  **Roteador-Pato Branco**  |  Se0/0/1  | 200.136.6.238 | 255.255.255.252 |     **-**      | 2001:DB8:CAFE:06FF::3:2/112 |   EUI-64   |    **-**     |
@@ -215,17 +215,17 @@ A documentação de SSID, senha e demais parâmetros Wi-Fi será preenchida na *
 
 | Campus | Nome do AP | Modelo utilizado | Notebook | Porta do switch ligada ao AP | Porta do AP ligada ao switch |
 | :--- |:-----------| :--- |:---------|:-----------------------------| :--- |
-| **Pato Branco** | AP-PB-JE   | WRT300N | NotePB   | Fa0/6                        | **Gi1** |
-| **Francisco Beltrão** | AP-FB-JE   | WRT300N | NoteFB   | Fa0/6                        | **Gi1** |
-| **Dois Vizinhos** | AP-DV-JE    | WRT300N | NoteDV   | Fa0/6                        | **Gi1** |
+| **Pato Branco** | AP-PB-JE   | WRT300N | NotePB   | Fa0/6 | **Gi1** |
+| **Francisco Beltrão** | AP-FB-JE   | WRT300N | NoteFB   | Fa0/6 | **Gi1** |
+| **Dois Vizinhos** | AP-DV-JE    | WRT300N | NoteDV   | Fa0/6 | **Gi1** |
 
 ### Parâmetros Wi-Fi
 
 | Campus | SSID configurado | Segurança | Criptografia | Senha do ambiente simulado | DHCP do AP |
 | :--- |:-----------------| :--- | :--- |:---------------------------| :--- |
-| **Pato Branco** | UTFPR-PB-JE      | WPA2-PSK | AES | patobranco1                | Desativado |
-| **Francisco Beltrão** | UTFPR-FB-JE      | WPA2-PSK | AES | fcobeltra1                 | Desativado |
-| **Dois Vizinhos** | UTFPR-DV-JE      | WPA2-PSK | AES | 2vizinhos                  | Desativado |
+| **Pato Branco** | UTFPR-PB-JE      | WPA2-PSK | AES | patobranco1 | Desativado |
+| **Francisco Beltrão** | UTFPR-FB-JE      | WPA2-PSK | AES | fcobeltra1 | Desativado |
+| **Dois Vizinhos** | UTFPR-DV-JE      | WPA2-PSK | AES | 2vizinhos  | Desativado |
 
 Outros parâmetros Wi-Fi configurados e observações sobre os modelos utilizados: **Canal automático (2.4 GHz), modo de rede misto (B/G/N), SSID Broadcast ativado e porta Internet (WAN) mantida desconectada**.
 
